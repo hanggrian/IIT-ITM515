@@ -1,0 +1,15 @@
+package edu.iit.sat.itmd4515.uid
+
+import edu.iit.sat.itmd4515.uid.uidlab1.Repository
+import kotlin.test.Test
+import kotlin.test.assertTrue
+
+class RepositoryTest {
+    @Test
+    fun `Retrieve markdown file from resources`() =
+        Repository.entries.forEach {
+            val file = it.content
+            assertTrue(file.exists())
+            assertTrue(file.readText().isNotBlank())
+        }
+}

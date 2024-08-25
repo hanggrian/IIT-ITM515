@@ -1,0 +1,28 @@
+[versions]
+jdk = "17"
+jre = "8"
+kotlin = "1.9.21"
+ktlint = "1.3.1"
+
+[plugins]
+cargo = "com.bmuschko.cargo:2.9.0"
+ktlint = "org.jlleitschuh.gradle.ktlint:12.1.1"
+
+[libraries]
+# lint
+rulebook-ktlint = "com.hanggrian.rulebook:rulebook-ktlint:0.1"
+# main
+cdi-api = "jakarta.enterprise:jakarta.enterprise.cdi-api:4.1.0"
+rs-api = "jakarta.ws.rs:jakarta.ws.rs-api:4.0.0"
+servlet-api = "jakarta.servlet:jakarta.servlet-api:6.1.0"
+deployment-client = "org.glassfish.main.deployment:deployment-client:5.1.0"
+cargo-ant = "org.codehaus.cargo:cargo-ant:1.10.14"
+kotlinx-html-jvm = "org.jetbrains.kotlinx:kotlinx-html-jvm:0.11.0"
+commonmark-ext-gfm-tables = "org.commonmark:commonmark-ext-gfm-tables:0.22.0"
+# test
+truth = "com.google.truth:truth:1.4.4"
+
+[bundles]
+jakarta = ["cdi-api", "rs-api", "servlet-api"]
+cargo = ["deployment-client", "cargo-ant"]
+markup = ["kotlinx-html-jvm", "commonmark-ext-gfm-tables"]
