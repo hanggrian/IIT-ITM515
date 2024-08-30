@@ -1,6 +1,5 @@
-package edu.iit.sat.itmd4515.uid
+package edu.iit.sat.itmd4515.uid.uidlab1
 
-import edu.iit.sat.itmd4515.uid.uidlab1.Repository
 import kotlin.test.Test
 import kotlin.test.assertTrue
 

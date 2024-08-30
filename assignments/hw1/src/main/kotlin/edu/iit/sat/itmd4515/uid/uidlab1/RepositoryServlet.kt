@@ -24,10 +24,11 @@ import org.commonmark.parser.Parser
 import org.commonmark.renderer.html.HtmlRenderer
 import java.io.IOException
 
+/** The servlet to personal repository page. */
 @WebServlet(name = "repository", value = ["/repository"])
 class RepositoryServlet : HttpServlet() {
     @Throws(IOException::class)
-    public override fun doGet(request: HttpServletRequest, response: HttpServletResponse) {
+    override fun doGet(request: HttpServletRequest, response: HttpServletResponse) {
         val repository =
             Repository.valueOf(
                 request
@@ -99,17 +100,17 @@ class RepositoryServlet : HttpServlet() {
 
     override fun destroy() {}
 
-    companion object {
-        private const val PRISM_DIR = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/"
-        private const val COLOR_PRIMARY = "#159957"
+    private companion object {
+        const val PRISM_DIR = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/"
+        const val COLOR_PRIMARY = "#159957"
 
-        private val RENDERER =
+        val RENDERER: HtmlRenderer =
             HtmlRenderer
                 .builder()
                 .extensions(listOf(TablesExtension.create()))
                 .build()
 
-        private val PARSER =
+        val PARSER: Parser =
             Parser
                 .builder()
                 .extensions(listOf(TablesExtension.create()))

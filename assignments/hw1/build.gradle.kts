@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 val releaseGroup: String by project
 val releaseArtifact: String by project
 val releaseVersion: String by project
+val payaraContainer: String by project
+val payaraPath: String by project
 
 val jdkVersion = JavaLanguageVersion.of(libs.versions.jdk.get())
 val jreVersion = JavaLanguageVersion.of(libs.versions.jre.get())
@@ -12,9 +14,9 @@ version = releaseVersion
 
 plugins {
     kotlin("jvm") version libs.versions.kotlin
+    alias(libs.plugins.ktlint)
     war
     alias(libs.plugins.cargo)
-    alias(libs.plugins.ktlint)
 }
 
 kotlin.jvmToolchain(jdkVersion.asInt())
@@ -22,8 +24,8 @@ kotlin.jvmToolchain(jdkVersion.asInt())
 ktlint.version.set(libs.versions.ktlint.get())
 
 cargo {
-    containerId = "glassfish5x"
-    local.homeDir = file("/Users/hanggrian/payara6")
+    containerId = payaraContainer
+    local.homeDir = file(payaraPath)
     withGroovyBuilder {
         "deployable" {
             "setContext"("/")

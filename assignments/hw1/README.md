@@ -1,4 +1,4 @@
-# [Lab 1](https://github.com/hanggrian/IIT-ITM515/blob/assets/assignments/hw1.pdf)
+# [Lab 1](https://github.com/hanggrian/IIT-ITM515/blob/assets/assignments/hw1.pdf): Setup
 
 This project contains an introductory Maven web application and a first-time
 setup of MySQL database.

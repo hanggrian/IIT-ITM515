@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.MasterDetailPane?>
+<VBox
+  xmlns="http://javafx.com/javafx"
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="edu.iit.sat.itmd4515.uid.uidlab2.MainController">
+  <MenuBar>
+    <Menu
+      mnemonicParsing="false"
+      text="File">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#quit"
+        text="Quit"
+        accelerator="SHORTCUT+Q"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Edit">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#minimize"
+        text="Add Rental"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="rentalRemoveMenu"
+        onAction="#minimize"
+        text="Remove Rental"/>
+      <SeparatorMenuItem mnemonicParsing="false"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="filmChangeMenu"
+        onAction="#changeFilm"
+        text="Change Film"/>
+      <SeparatorMenuItem mnemonicParsing="false"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="paymentAddMenu"
+        onAction="#addPayment"
+        text="Add Payment"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="paymentRemoveMenu"
+        onAction="#removePayment"
+        text="Remove Payment"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Window">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#minimize"
+        text="Minimize"
+        accelerator="SHORTCUT+M"/>
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#zoom"
+        text="Zoom"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Help">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#about"
+        text="About"/>
+    </Menu>
+  </MenuBar>
+  <MasterDetailPane
+    fx:id="masterDetailPane"
+    dividerPosition="0.5"
+    VBox.vgrow="ALWAYS">
+    <masterNode>
+      <VBox>
+        <ToolBar>
+          <fx:define>
+            <ToggleGroup fx:id="rentalGroup"/>
+          </fx:define>
+          <RadioButton
+            mnemonicParsing="false"
+            fx:id="rentalDateToggle"
+            toggleGroup="$rentalGroup"
+            text="Filter"
+            selected="true"/>
+          <Button
+            mnemonicParsing="false"
+            fx:id="rentalDatePrevButton"
+            onAction="#prevRental"
+            text="←"/>
+          <DatePicker
+            fx:id="rentalDatePicker"
+            promptText="Date"
+            prefWidth="120"/>
+          <Button
+            mnemonicParsing="false"
+            fx:id="rentalDateNextButton"
+            onAction="#nextRental"
+            text="→"/>
+          <RadioButton
+            mnemonicParsing="false"
+            fx:id="rentalIdToggle"
+            toggleGroup="$rentalGroup"
+            text="Search">
+            <HBox.margin>
+              <Insets left="20.0"/>
+            </HBox.margin>
+          </RadioButton>
+          <TextField
+            fx:id="rentalIdField"
+            promptText="ID"
+            prefWidth="60"/>
+        </ToolBar>
+        <TableView
+          fx:id="rentalTable"
+          VBox.vgrow="ALWAYS">
+          <columns>
+            <TableColumn
+              fx:id="rentalColumnId"
+              text="ID"/>
+            <TableColumn
+              fx:id="rentalColumnDate"
+              text="Rental Date"/>
+            <TableColumn
+              fx:id="rentalColumnReturnDate"
+              text="Return Date"/>
+            <TableColumn
+              fx:id="rentalColumnStaff"
+              text="Staff"/>
+          </columns>
+          <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+          </columnResizePolicy>
+          <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem
+                  mnemonicParsing="false"
+                  text="Add Rental"/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="rentalRemoveMenu2"
+                  text="Remove Rental"/>
+                <SeparatorMenuItem mnemonicParsing="false"/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="filmChangeMenu2"
+                  onAction="#changeFilm"
+                  text="Change Film"/>
+              </items>
+            </ContextMenu>
+          </contextMenu>
+        </TableView>
+      </VBox>
+    </masterNode>
+    <detailNode>
+      <SplitPane
+        orientation="VERTICAL"
+        dividerPositions="0.5">
+        <GridPane
+          hgap="10"
+          vgap="10">
+          <columnConstraints>
+            <ColumnConstraints hgrow="NEVER"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints vgrow="NEVER"/>
+            <RowConstraints vgrow="NEVER"/>
+            <RowConstraints vgrow="NEVER"/>
+            <RowConstraints vgrow="NEVER"/>
+            <RowConstraints vgrow="NEVER"/>
+            <RowConstraints vgrow="ALWAYS"/>
+          </rowConstraints>
+          <padding>
+            <Insets topRightBottomLeft="16"/>
+          </padding>
+          <ImageView
+            GridPane.rowIndex="0"
+            GridPane.columnIndex="0">
+            <Image url="@/images/rate.png"/>
+          </ImageView>
+          <Label
+            fx:id="rateLabel"
+            wrapText="true"
+            GridPane.rowIndex="0"
+            GridPane.columnIndex="1"/>
+          <ImageView
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="0">
+            <Image url="@/images/store.png"/>
+          </ImageView>
+          <Label
+            fx:id="storeLabel"
+            wrapText="true"
+            GridPane.rowIndex="1"
+            GridPane.columnIndex="1"/>
+          <ImageView
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="0">
+            <Image url="@/images/staff.png"/>
+          </ImageView>
+          <Label
+            fx:id="staffLabel"
+            wrapText="true"
+            GridPane.rowIndex="2"
+            GridPane.columnIndex="1"/>
+          <ImageView
+            GridPane.rowIndex="3"
+            GridPane.columnIndex="0">
+            <Image url="@/images/customer.png"/>
+          </ImageView>
+          <Label
+            fx:id="customerLabel"
+            wrapText="true"
+            GridPane.rowIndex="3"
+            GridPane.columnIndex="1"/>
+          <ImageView
+            GridPane.rowIndex="4"
+            GridPane.columnIndex="0">
+            <Image url="@/images/address.png"/>
+          </ImageView>
+          <Label
+            fx:id="addressLabel"
+            wrapText="true"
+            GridPane.rowIndex="4"
+            GridPane.columnIndex="1"/>
+          <VBox
+            alignment="CENTER"
+            GridPane.rowIndex="5"
+            GridPane.columnIndex="0"
+            GridPane.columnSpan="2">
+            <Label
+              fx:id="titleLabel"
+              text="Title (Year)">
+              <font>
+                <Font name="Verdana" size="18.0"/>
+              </font>
+            </Label>
+            <Label
+              fx:id="subtitleLabel"
+              text="120 min., Horror, English">
+              <font>
+                <Font name="Verdana" size="14.0"/>
+              </font>
+            </Label>
+            <Label
+              fx:id="descriptionLabel"
+              wrapText="true"
+              text="Description">
+              <font>
+                <Font name="Verdana" size="12.0"/>
+              </font>
+              <VBox.margin>
+                <Insets top="20.0"/>
+              </VBox.margin>
+            </Label>
+            <Label
+              fx:id="captionLabel"
+              wrapText="true"
+              text="120 min. in English">
+              <font>
+                <Font name="Verdana Bold" size="10.0"/>
+              </font>
+              <VBox.margin>
+                <Insets top="10.0"/>
+              </VBox.margin>
+            </Label>
+          </VBox>
+        </GridPane>
+        <TitledPane
+          collapsible="false"
+          text="Payment">
+          <TableView fx:id="paymentTable">
+            <columns>
+              <TableColumn
+                fx:id="paymentColumnDate"
+                text="ID"/>
+              <TableColumn
+                fx:id="paymentColumnAmount"
+                text="Amount"/>
+            </columns>
+            <columnResizePolicy>
+              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <contextMenu>
+              <ContextMenu>
+                <items>
+                  <MenuItem
+                    mnemonicParsing="false"
+                    fx:id="paymentAddMenu2"
+                    onAction="#addPayment"
+                    text="Add Payment"/>
+                  <MenuItem
+                    mnemonicParsing="false"
+                    fx:id="paymentRemoveMenu2"
+                    onAction="#removePayment"
+                    text="Remove Payment"/>
+                </items>
+              </ContextMenu>
+            </contextMenu>
+          </TableView>
+        </TitledPane>
+      </SplitPane>
+    </detailNode>
+  </MasterDetailPane>
+</VBox>

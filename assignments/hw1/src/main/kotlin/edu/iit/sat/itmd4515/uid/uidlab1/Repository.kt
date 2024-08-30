@@ -3,6 +3,7 @@ package edu.iit.sat.itmd4515.uid.uidlab1
 import java.io.File
 import java.nio.file.Paths
 
+/** Personal GitHub repositories. */
 enum class Repository(
     val id: String,
     val fullName: String,
