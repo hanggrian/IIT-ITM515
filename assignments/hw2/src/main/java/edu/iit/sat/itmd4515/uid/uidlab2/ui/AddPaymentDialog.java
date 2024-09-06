@@ -28,7 +28,8 @@ public class AddPaymentDialog extends Dialog<Payment> {
         TextField field = new TextField();
         field.setPromptText("Amount");
         field.setTooltip(
-            new Tooltip("Enter a numeric value with optional precision as the payment amount."));
+            new Tooltip("Enter a numeric value with optional precision as the payment amount.")
+        );
 
         HBox hbox = new HBox();
         hbox.setSpacing(10);
@@ -54,7 +55,9 @@ public class AddPaymentDialog extends Dialog<Payment> {
                             return true;
                         }
                     },
-                    field.textProperty()));
+                    field.textProperty()
+                )
+            );
 
         setResultConverter(
             param -> {

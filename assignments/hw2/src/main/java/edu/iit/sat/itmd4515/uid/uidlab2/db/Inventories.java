@@ -16,8 +16,8 @@ public final class Inventories {
             .createQuery(
                 "FROM Inventory WHERE store= :store "
                     + "AND film= :film",
-                Inventory.class)
-            .setParameter("store", store)
+                Inventory.class
+            ).setParameter("store", store)
             .setParameter("film", film)
             .getResultList()
             .get(0);

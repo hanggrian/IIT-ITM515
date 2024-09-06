@@ -24,7 +24,8 @@ public class AboutDialog extends Dialog<Void> {
         setResizable(false);
         setContentText(
             "A simple JavaFX app that performs basic "
-                + "CRUD operations to sample Sakila database");
+                + "CRUD operations to sample Sakila database"
+        );
 
         Hyperlink hyperlink = new Hyperlink("View in GitHub");
         hyperlink.setOnAction(
@@ -38,7 +39,8 @@ public class AboutDialog extends Dialog<Void> {
                     // no logger, unlikely to throw error
                     throw new RuntimeException(e);
                 }
-            });
+            }
+        );
         VBox hyperlinkContainer = new VBox(hyperlink);
         hyperlinkContainer.setPadding(new Insets(20));
 

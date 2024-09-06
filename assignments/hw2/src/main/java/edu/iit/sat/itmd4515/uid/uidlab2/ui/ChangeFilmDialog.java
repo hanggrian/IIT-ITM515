@@ -45,7 +45,9 @@ public class ChangeFilmDialog extends Dialog<Film> {
                     return FXCollections.observableArrayList(
                         Films.selectByTitleUpToTen(session, field.getText()));
                 },
-                field.textProperty()));
+                field.textProperty()
+            )
+        );
         list.setOnMouseClicked(
             event -> {
                 if (!event.getButton().equals(PRIMARY) || event.getClickCount() != 2) {
@@ -56,7 +58,8 @@ public class ChangeFilmDialog extends Dialog<Film> {
                 }
                 setResult(list.getSelectionModel().getSelectedItem());
                 close();
-            });
+            }
+        );
 
         VBox vbox = new VBox();
         vbox.setSpacing(10);
@@ -71,7 +74,9 @@ public class ChangeFilmDialog extends Dialog<Film> {
             .bind(
                 createBooleanBinding(
                     () -> list.getSelectionModel().getSelectedItem() == null,
-                    list.getSelectionModel().selectedItemProperty()));
+                    list.getSelectionModel().selectedItemProperty()
+                )
+            );
 
         setResultConverter(
             param -> {
@@ -80,7 +85,8 @@ public class ChangeFilmDialog extends Dialog<Film> {
                 }
                 session.close();
                 return list.getSelectionModel().getSelectedItem();
-            });
+            }
+        );
 
         runLater(() -> field.setText(film.getTitle()));
     }

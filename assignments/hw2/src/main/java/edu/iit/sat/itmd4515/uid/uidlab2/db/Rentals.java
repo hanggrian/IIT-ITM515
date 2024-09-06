@@ -25,8 +25,8 @@ public final class Rentals {
             .createQuery(
                 "FROM Rental WHERE DATE(rentalDate)= :rental_date "
                     + "OR DATE(returnDate)= :return_date",
-                Rental.class)
-            .setParameter("rental_date", date)
+                Rental.class
+            ).setParameter("rental_date", date)
             .setParameter("return_date", date)
             .getResultList();
     }
@@ -34,7 +34,8 @@ public final class Rentals {
     public static void updateFilm(Session session, Rental rental, Film film) {
         Transaction transaction = session.beginTransaction();
         rental.setInventory(
-            Inventories.selectOneByFilm(session, rental.getCustomer().getStore(), film));
+            Inventories.selectOneByFilm(session, rental.getCustomer().getStore(), film)
+        );
         transaction.commit();
     }
 }

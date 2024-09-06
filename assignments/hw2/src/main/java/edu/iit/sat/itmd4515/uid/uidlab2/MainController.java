@@ -9,12 +9,14 @@ import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Rental;
 import edu.iit.sat.itmd4515.uid.uidlab2.ui.AboutDialog;
 import edu.iit.sat.itmd4515.uid.uidlab2.ui.AddPaymentDialog;
 import edu.iit.sat.itmd4515.uid.uidlab2.ui.ChangeFilmDialog;
+
 import java.net.URL;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.function.Function;
+
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -49,41 +51,73 @@ public class MainController implements Initializable {
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     private static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance(Locale.US);
 
-    @FXML public MenuItem rentalRemoveMenu;
-    @FXML public MenuItem filmChangeMenu;
-    @FXML public MenuItem paymentAddMenu;
-    @FXML public MenuItem paymentRemoveMenu;
+    @FXML
+    public MenuItem rentalRemoveMenu;
+    @FXML
+    public MenuItem filmChangeMenu;
+    @FXML
+    public MenuItem paymentAddMenu;
+    @FXML
+    public MenuItem paymentRemoveMenu;
 
-    @FXML public MasterDetailPane masterDetailPane;
+    @FXML
+    public MasterDetailPane masterDetailPane;
 
-    @FXML public TableView<Rental> rentalTable;
-    @FXML public TableColumn<Rental, Integer> rentalColumnId;
-    @FXML public TableColumn<Rental, String> rentalColumnDate;
-    @FXML public TableColumn<Rental, String> rentalColumnReturnDate;
-    @FXML public TableColumn<Rental, String> rentalColumnStaff;
-    @FXML public MenuItem rentalRemoveMenu2;
-    @FXML public MenuItem filmChangeMenu2;
-    @FXML public RadioButton rentalDateToggle;
-    @FXML public DatePicker rentalDatePicker;
-    @FXML public Button rentalDatePrevButton;
-    @FXML public Button rentalDateNextButton;
-    @FXML public RadioButton rentalIdToggle;
-    @FXML public TextField rentalIdField;
+    @FXML
+    public TableView<Rental> rentalTable;
+    @FXML
+    public TableColumn<Rental, Integer> rentalColumnId;
+    @FXML
+    public TableColumn<Rental, String> rentalColumnDate;
+    @FXML
+    public TableColumn<Rental, String> rentalColumnReturnDate;
+    @FXML
+    public TableColumn<Rental, String> rentalColumnStaff;
+    @FXML
+    public MenuItem rentalRemoveMenu2;
+    @FXML
+    public MenuItem filmChangeMenu2;
+    @FXML
+    public RadioButton rentalDateToggle;
+    @FXML
+    public DatePicker rentalDatePicker;
+    @FXML
+    public Button rentalDatePrevButton;
+    @FXML
+    public Button rentalDateNextButton;
+    @FXML
+    public RadioButton rentalIdToggle;
+    @FXML
+    public TextField rentalIdField;
 
-    @FXML public Label rateLabel;
-    @FXML public Label storeLabel;
-    @FXML public Label staffLabel;
-    @FXML public Label customerLabel;
-    @FXML public Label addressLabel;
-    @FXML public Label titleLabel;
-    @FXML public Label subtitleLabel;
-    @FXML public Label descriptionLabel;
-    @FXML public Label captionLabel;
-    @FXML public TableView<Payment> paymentTable;
-    @FXML public TableColumn<Payment, String> paymentColumnDate;
-    @FXML public TableColumn<Payment, String> paymentColumnAmount;
-    @FXML public MenuItem paymentAddMenu2;
-    @FXML public MenuItem paymentRemoveMenu2;
+    @FXML
+    public Label rateLabel;
+    @FXML
+    public Label storeLabel;
+    @FXML
+    public Label staffLabel;
+    @FXML
+    public Label customerLabel;
+    @FXML
+    public Label addressLabel;
+    @FXML
+    public Label titleLabel;
+    @FXML
+    public Label subtitleLabel;
+    @FXML
+    public Label descriptionLabel;
+    @FXML
+    public Label captionLabel;
+    @FXML
+    public TableView<Payment> paymentTable;
+    @FXML
+    public TableColumn<Payment, String> paymentColumnDate;
+    @FXML
+    public TableColumn<Payment, String> paymentColumnAmount;
+    @FXML
+    public MenuItem paymentAddMenu2;
+    @FXML
+    public MenuItem paymentRemoveMenu2;
 
     private Session session;
     private SimpleBooleanProperty labelsTrigger;
@@ -112,28 +146,36 @@ public class MainController implements Initializable {
                 return String.format("$%s rent or $%s",
                     NUMBER_FORMAT.format(film.getRentalRate()),
                     NUMBER_FORMAT.format(film.getReplacementCost()));
-            });
+            }
+        );
         bindInformationLabel(
             storeLabel,
-            rental -> rental.getInventory().getStore().getAddress().toString());
+            rental -> rental.getInventory().getStore().getAddress().toString()
+        );
         bindInformationLabel(
             staffLabel,
             rental ->
                 chainStrings(
                     rental.getStaff().getLastName(),
-                    rental.getStaff().getFirstName()));
+                    rental.getStaff().getFirstName()
+                )
+        );
         bindInformationLabel(
             customerLabel,
             rental ->
                 chainStrings(
                     rental.getCustomer().getLastName(),
-                    rental.getCustomer().getFirstName()));
+                    rental.getCustomer().getFirstName()
+                )
+        );
         bindInformationLabel(
             addressLabel,
-            rental -> rental.getCustomer().getAddress().toString());
+            rental -> rental.getCustomer().getAddress().toString()
+        );
         bindInformationLabel(
             titleLabel,
-            rental -> rental.getInventory().getFilm().toString());
+            rental -> rental.getInventory().getFilm().toString()
+        );
         bindInformationLabel(
             subtitleLabel,
             rental -> {
@@ -144,10 +186,12 @@ public class MainController implements Initializable {
                     film.getLength(),
                     film.getCategories().iterator().next().getName(),
                     film.getLanguage().getName());
-            });
+            }
+        );
         bindInformationLabel(
             descriptionLabel,
-            rental -> rental.getInventory().getFilm().getDescription());
+            rental -> rental.getInventory().getFilm().getDescription()
+        );
         bindInformationLabel(
             captionLabel,
             rental ->
@@ -158,16 +202,22 @@ public class MainController implements Initializable {
                         .getActors()
                         .stream()
                         .map(actor -> actor.getFirstName() + ' ' + actor.getLastName())
-                        .toArray(String[]::new)));
+                        .toArray(String[]::new)
+                )
+        );
 
-        rentalColumnId.setCellValueFactory(param ->
-            new SimpleObjectProperty<>(param.getValue().getRentalId()));
-        rentalColumnDate.setCellValueFactory(param ->
-            new SimpleStringProperty(DATE_FORMAT.format(param.getValue().getRentalDate())));
-        rentalColumnReturnDate.setCellValueFactory(param ->
-            new SimpleStringProperty(DATE_FORMAT.format(param.getValue().getReturnDate())));
-        rentalColumnStaff.setCellValueFactory(param ->
-            new SimpleStringProperty(param.getValue().getStaff().getUsername()));
+        rentalColumnId.setCellValueFactory(
+            param -> new SimpleObjectProperty<>(param.getValue().getRentalId())
+        );
+        rentalColumnDate.setCellValueFactory(
+            param -> new SimpleStringProperty(DATE_FORMAT.format(param.getValue().getRentalDate()))
+        );
+        rentalColumnReturnDate.setCellValueFactory(
+            param -> new SimpleStringProperty(DATE_FORMAT.format(param.getValue().getReturnDate()))
+        );
+        rentalColumnStaff.setCellValueFactory(
+            param -> new SimpleStringProperty(param.getValue().getStaff().getUsername())
+        );
         rentalTable.itemsProperty().bind(
             createObjectBinding(
                 () -> {
@@ -185,12 +235,17 @@ public class MainController implements Initializable {
                 rentalDateToggle.selectedProperty(),
                 rentalDatePicker.valueProperty(),
                 rentalIdToggle.selectedProperty(),
-                rentalIdField.textProperty()));
+                rentalIdField.textProperty()
+            )
+        );
 
-        paymentColumnDate.setCellValueFactory(param ->
-            new SimpleStringProperty(DATE_FORMAT.format(param.getValue().getPaymentDate())));
-        paymentColumnAmount.setCellValueFactory(param ->
-            new SimpleStringProperty('$' + NUMBER_FORMAT.format(param.getValue().getAmount())));
+        paymentColumnDate.setCellValueFactory(
+            param -> new SimpleStringProperty(DATE_FORMAT.format(param.getValue().getPaymentDate()))
+        );
+        paymentColumnAmount.setCellValueFactory(
+            param ->
+                new SimpleStringProperty('$' + NUMBER_FORMAT.format(param.getValue().getAmount()))
+        );
         paymentTable.itemsProperty().bind(
             createObjectBinding(
                 () -> {
@@ -201,7 +256,9 @@ public class MainController implements Initializable {
                     return FXCollections.observableArrayList(
                         Payments.selectByRentalId(session, rental));
                 },
-                rentalTable.getSelectionModel().selectedItemProperty()));
+                rentalTable.getSelectionModel().selectedItemProperty()
+            )
+        );
 
         rentalDatePicker.setValue(SakilaApp.EARLIEST_RENTAL_DATE); // earliest retail date
     }
@@ -222,10 +279,12 @@ public class MainController implements Initializable {
         Film film = rental.getInventory().getFilm();
         new ChangeFilmDialog(film)
             .showAndWait()
-            .ifPresent(film2 -> {
-                Rentals.updateFilm(session, rental, film2);
-                labelsTrigger.set(!labelsTrigger.get());
-            });
+            .ifPresent(
+                film2 -> {
+                    Rentals.updateFilm(session, rental, film2);
+                    labelsTrigger.set(!labelsTrigger.get());
+                }
+            );
     }
 
     @FXML
@@ -243,17 +302,20 @@ public class MainController implements Initializable {
             String.format(
                 "Confirm to delete $%s received at %s?",
                 NUMBER_FORMAT.format(payment.getAmount()),
-                DATE_FORMAT.format(payment.getPaymentDate())),
+                DATE_FORMAT.format(payment.getPaymentDate())
+            ),
             ButtonType.YES,
             ButtonType.NO)
             .showAndWait()
-            .ifPresent(buttonType -> {
-                if (buttonType != ButtonType.YES) {
-                    return;
+            .ifPresent(
+                buttonType -> {
+                    if (buttonType != ButtonType.YES) {
+                        return;
+                    }
+                    Payments.remove(session, payment);
+                    paymentTable.getItems().remove(payment);
                 }
-                Payments.remove(session, payment);
-                paymentTable.getItems().remove(payment);
-            });
+            );
     }
 
     @FXML
@@ -297,14 +359,18 @@ public class MainController implements Initializable {
                     return function.apply(rental);
                 },
                 rentalTable.getSelectionModel().selectedItemProperty(),
-                labelsTrigger));
+                labelsTrigger
+            )
+        );
     }
 
     private void bindMenuToTable(MenuItem menu, MenuItem menu2, TableView<?> table) {
         menu.disableProperty().bind(
             createBooleanBinding(
                 () -> table.getSelectionModel().getSelectedItem() == null,
-                table.getSelectionModel().selectedItemProperty()));
+                table.getSelectionModel().selectedItemProperty()
+            )
+        );
         menu2.disableProperty().bind(menu.disableProperty());
     }
 
