@@ -64,11 +64,12 @@ public class AddPaymentDialog extends Dialog<Payment> {
                 if (param != ButtonType.OK) {
                     return null;
                 }
-                Session session = Databases.open();
+                Session session = Databases.openSession();
                 Payment payment = Payments.insert(session, new BigDecimal(field.getText()), rental);
                 session.close();
                 return payment;
-            });
+            }
+        );
 
         runLater(field::requestFocus);
     }

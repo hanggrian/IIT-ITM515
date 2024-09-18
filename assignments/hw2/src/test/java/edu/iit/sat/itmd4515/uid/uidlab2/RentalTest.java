@@ -14,7 +14,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 public class RentalTest extends DatabaseTest {
     @Test
-    public void validPojo() {
+    public void invalidPojo() {
         Rental rental = new Rental();
 
         assertThat(validator.validate(rental).stream().map(ConstraintViolation::getMessage))
@@ -22,11 +22,12 @@ public class RentalTest extends DatabaseTest {
                 "must not be null",
                 "must not be null",
                 "must not be null",
-                "must not be null");
+                "must not be null"
+            );
     }
 
     @Test
-    public void invalidPojo() {
+    public void validPojo() {
         Rental rental = new Rental();
         rental.setRentalDate(new Date());
         rental.setInventory(new Inventory());

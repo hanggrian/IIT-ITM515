@@ -122,11 +122,11 @@ toolbar.
 Option to create a new payment is available when selecting an item in the rental
 table, then by clicking context menu or menu bar.
 
-<img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw2/screenshot3_3.png"><br><small>Screenshot 3.3 &mdash; UPDATE film</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw2/screenshot3_3.png"><br><small>Screenshot 3.3 &mdash; UPDATE film</small>
 
 Since the film table is too large, the search field is provided to filter the
 film table.
 
-<img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw2/screenshot3_4.png"><br><small>Screenshot 3.4 &mdash; DELETE payment</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw2/screenshot3_4.png"><br><small>Screenshot 3.4 &mdash; DELETE payment</small>
 
 Confirm the deletion of a payment with an alert dialog.

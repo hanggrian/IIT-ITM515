@@ -16,6 +16,9 @@ import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Payment;
 import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Rental;
 import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Staff;
 import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Store;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -25,19 +28,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Hibernate utility class to create session using static factory pattern.
+ * Hibernate utility class to create entity manager and validator instances.
  */
 public final class Databases {
     private Databases() {}
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Databases.class);
-    private static final SessionFactory SESSION_FACTORY;
 
-    public static Session open() {
-        return SESSION_FACTORY.openSession();
-    }
+    private static SessionFactory sessionFactory;
+    private static ValidatorFactory validatorFactory;
 
-    static {
+    /**
+     * Returns a session from existing or newly-created factory.
+     */
+    public static Session openSession() {
+        if (sessionFactory != null) {
+            return sessionFactory.openSession();
+        }
         Configuration configuration =
             new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -60,9 +67,36 @@ public final class Databases {
         StandardServiceRegistryBuilder sb = new StandardServiceRegistryBuilder();
         sb.applySettings(configuration.getProperties());
         StandardServiceRegistry standardServiceRegistry = sb.build();
-        SESSION_FACTORY = configuration.buildSessionFactory(standardServiceRegistry);
-        for (Object a : SESSION_FACTORY.getMetamodel().getEntities()) {
+        sessionFactory = configuration.buildSessionFactory(standardServiceRegistry);
+        for (Object a : sessionFactory.getMetamodel().getEntities()) {
             LOGGER.info(a.toString());
         }
+        return sessionFactory.openSession();
+    }
+
+    /**
+     * Returns a validator from existing or newly-created factory.
+     */
+    public static Validator getValidator() {
+        if (validatorFactory != null) {
+            return validatorFactory.getValidator();
+        }
+        validatorFactory = Validation.buildDefaultValidatorFactory();
+        return validatorFactory.getValidator();
+    }
+
+    /**
+     * Release database instances.
+     */
+    public static void close() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+            sessionFactory = null;
+        }
+        if (validatorFactory == null) {
+            return;
+        }
+        validatorFactory.close();
+        validatorFactory = null;
     }
 }

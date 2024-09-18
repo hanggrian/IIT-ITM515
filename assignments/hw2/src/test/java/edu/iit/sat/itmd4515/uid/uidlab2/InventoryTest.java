@@ -13,17 +13,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InventoryTest extends DatabaseTest {
     @Test
-    public void validPojo() {
+    public void invalidPojo() {
         Inventory inventory = new Inventory();
 
         assertThat(validator.validate(inventory).stream().map(ConstraintViolation::getMessage))
             .containsExactly(
                 "must not be null",
-                "must not be null");
+                "must not be null"
+            );
     }
 
     @Test
-    public void invalidPojo() {
+    public void validPojo() {
         Inventory inventory = new Inventory();
         inventory.setFilm(new Film());
         inventory.setStore(new Store());
@@ -41,7 +42,8 @@ public class InventoryTest extends DatabaseTest {
             Inventories.selectOneByFilm(
                 session,
                 rental.getStaff().getStore(),
-                rental.getInventory().getFilm());
+                rental.getInventory().getFilm()
+            );
         assertEquals(rental.getInventory(), inventory);
     }
 }

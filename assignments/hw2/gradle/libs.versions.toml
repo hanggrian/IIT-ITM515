@@ -36,5 +36,5 @@ hibernate = [
 ]
 hibernate-validator = [
   "hibernate-validator",
-  "expressly"
+  "expressly",
 ]

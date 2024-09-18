@@ -12,7 +12,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 public class FilmTest extends DatabaseTest {
     @Test
-    public void validPojo() {
+    public void invalidPojo() {
         Film film = new Film();
         film.setTitle(stringSized(129));
 
@@ -22,11 +22,12 @@ public class FilmTest extends DatabaseTest {
                 "must not be null",
                 "must not be null",
                 "must not be null",
-                "must not be null");
+                "must not be null"
+            );
     }
 
     @Test
-    public void invalidPojo() {
+    public void validPojo() {
         Byte b = 0;
         Film film = new Film();
         film.setTitle("");

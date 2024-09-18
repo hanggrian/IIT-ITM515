@@ -26,7 +26,7 @@ public class ChangeFilmDialog extends Dialog<Film> {
         setTitle("Change Film");
         setHeaderText(getTitle());
 
-        Session session = Databases.open();
+        Session session = Databases.openSession();
         Tooltip tooltip = new Tooltip("Films are limited to store inventories.");
 
         TextField field = new TextField();

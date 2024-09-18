@@ -18,17 +18,18 @@ import static com.google.common.truth.Truth.assertThat;
 
 public class PaymentTest extends DatabaseTest {
     @Test
-    public void validPojo() {
+    public void invalidPojo() {
         Inventory inventory = new Inventory();
 
         assertThat(validator.validate(inventory).stream().map(ConstraintViolation::getMessage))
             .containsExactly(
                 "must not be null",
-                "must not be null");
+                "must not be null"
+            );
     }
 
     @Test
-    public void invalidPojo() {
+    public void validPojo() {
         Payment payment = new Payment();
         payment.setCustomer(new Customer());
         payment.setStaff(new Staff());
@@ -40,7 +41,7 @@ public class PaymentTest extends DatabaseTest {
 
     @Test
     public void validDao() {
-        Session session = Databases.open();
+        Session session = Databases.openSession();
         Rental rental =
             session
                 .createQuery("FROM Rental WHERE id= 1", Rental.class)

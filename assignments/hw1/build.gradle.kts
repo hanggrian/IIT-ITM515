@@ -37,8 +37,9 @@ cargo {
 dependencies {
     ktlintRuleset(libs.rulebook.ktlint)
 
-    compileOnly(libs.bundles.jakarta)
     cargo(libs.bundles.cargo)
+
+    compileOnly(libs.bundles.jakarta)
 
     implementation(libs.bundles.markup)
 
