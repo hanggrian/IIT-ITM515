@@ -9,14 +9,12 @@ import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Rental;
 import edu.iit.sat.itmd4515.uid.uidlab2.ui.AboutDialog;
 import edu.iit.sat.itmd4515.uid.uidlab2.ui.AddPaymentDialog;
 import edu.iit.sat.itmd4515.uid.uidlab2.ui.ChangeFilmDialog;
-
 import java.net.URL;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.function.Function;
-
 import javafx.application.Platform;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -151,7 +149,7 @@ public class MainController implements Initializable {
             rental -> {
                 Film film = rental.getInventory().getFilm();
                 return String.format(
-                    "%s, %d min., %s, %s",
+                    "%s, %dm, %s, %s",
                     film.getRating().toString(),
                     film.getLength(),
                     film.getCategories().iterator().next().getName(),
@@ -176,6 +174,10 @@ public class MainController implements Initializable {
                         .toArray(String[]::new)
                 )
         );
+
+        masterDetailPane
+            .showDetailNodeProperty()
+            .bind(rentalTable.getSelectionModel().selectedItemProperty().isNotNull());
 
         rentalColumnId.setCellValueFactory(
             param -> new SimpleObjectProperty<>(param.getValue().getRentalId())

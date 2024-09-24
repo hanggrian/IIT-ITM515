@@ -21,8 +21,9 @@ import jakarta.validation.constraints.Size;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "address_id")
-    private short addressId;
+    @Column(name = "address_id", nullable = false)
+    @NotNull
+    private Short addressId;
 
     @Column(name = "address", nullable = false, length = 50)
     @NotNull

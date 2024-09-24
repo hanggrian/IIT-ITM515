@@ -30,7 +30,7 @@ public class SakilaApp extends Application {
             throw new RuntimeException(e);
         }
 
-        stage.setTitle("Sakila Rental Viewer");
+        stage.setTitle("Sakila Rentals");
         stage.setScene(new Scene(root));
         stage.setMinWidth(800);
         stage.setMinHeight(600);

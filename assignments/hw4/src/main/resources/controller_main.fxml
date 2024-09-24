@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox
+  xmlns="http://javafx.com/javafx"
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="edu.iit.sat.itmd4515.uid.uidlab4.MainController">
+  <MenuBar>
+    <Menu
+      mnemonicParsing="false"
+      text="File">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#quit"
+        text="Quit"
+        accelerator="SHORTCUT+Q"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Edit">
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="toggle24hMenu"
+        onAction="#toggle24h"
+        text="Toggle 24H Status"/>
+      <SeparatorMenuItem/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="toggleElevatorMenu"
+        onAction="#toggleElevator"
+        text="Toggle Elevator Feature"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="toggleParkingMenu"
+        onAction="#toggleParking"
+        text="Toggle Parking Feature"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="deleteStationMenu"
+        onAction="#deleteStation"
+        text="Delete Station"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="View">
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="listStationsMenu"
+        onAction="#listStations"
+        text="List Stations"/>
+      <SeparatorMenuItem/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="listTracksMenu"
+        onAction="#listTracks"
+        text="List Tracks"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Window">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#minimize"
+        text="Minimize"
+        accelerator="SHORTCUT+M"/>
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#zoom"
+        text="Zoom"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Help">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#about"
+        text="About"/>
+    </Menu>
+  </MenuBar>
+  <HBox
+    fx:id="hbox"
+    VBox.vgrow="ALWAYS"
+    spacing="10">
+    <padding>
+      <Insets topRightBottomLeft="10"/>
+    </padding>
+    <TitledPane
+      text="Tracks"
+      collapsible="false"
+      maxHeight="Infinity">
+      <ListView fx:id="trackList">
+        <contextMenu>
+          <ContextMenu>
+            <items>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="listStationsMenu2"
+                onAction="#listStations"
+                text="List Stations"/>
+              <SeparatorMenuItem/>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="toggle24hMenu2"
+                onAction="#toggle24h"
+                text="Toggle 24H Status"/>
+            </items>
+          </ContextMenu>
+        </contextMenu>
+      </ListView>
+    </TitledPane>
+    <TitledPane
+      text="Stations"
+      collapsible="false"
+      maxHeight="Infinity"
+      HBox.hgrow="ALWAYS">
+      <ListView fx:id="stationList">
+        <contextMenu>
+          <ContextMenu>
+            <items>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="listTracksMenu2"
+                onAction="#listTracks"
+                text="List Tracks"/>
+              <SeparatorMenuItem/>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="toggleElevatorMenu2"
+                onAction="#toggleElevator"
+                text="Toggle Elevator Feature"/>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="toggleParkingMenu2"
+                onAction="#toggleParking"
+                text="Toggle Parking Feature"/>
+              <SeparatorMenuItem/>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="addToTrackMenu"
+                onAction="#addToTrack"
+                text="Add to Track"/>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="removeFromTrackMenu"
+                onAction="#removeFromTrack"
+                text="Remove from Track"/>
+              <MenuItem
+                mnemonicParsing="false"
+                fx:id="deleteStationMenu2"
+                onAction="#deleteStation"
+                text="Delete Station"/>
+            </items>
+          </ContextMenu>
+        </contextMenu>
+      </ListView>
+    </TitledPane>
+  </HBox>
+</VBox>

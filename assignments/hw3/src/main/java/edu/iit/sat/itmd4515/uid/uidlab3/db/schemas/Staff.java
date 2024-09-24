@@ -22,8 +22,9 @@ import jakarta.validation.constraints.Size;
 public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "staff_id")
-    private byte staffId;
+    @Column(name = "staff_id", nullable = false)
+    @NotNull
+    private Byte staffId;
 
     @Column(name = "first_name", nullable = false, length = 45)
     @NotNull

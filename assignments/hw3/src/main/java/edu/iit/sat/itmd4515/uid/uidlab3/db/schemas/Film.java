@@ -14,7 +14,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,8 +28,9 @@ import java.util.Set;
 public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "film_id")
-    private short filmId;
+    @Column(name = "film_id", nullable = false)
+    @NotNull
+    private Short filmId;
 
     @Column(name = "title", nullable = false, length = 128)
     @NotNull

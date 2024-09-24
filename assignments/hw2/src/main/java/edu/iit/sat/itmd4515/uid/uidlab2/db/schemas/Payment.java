@@ -9,7 +9,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,8 +22,9 @@ import java.util.Date;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "payment_id")
-    private short paymentId;
+    @Column(name = "payment_id", nullable = false)
+    @NotNull
+    private Short paymentId;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)

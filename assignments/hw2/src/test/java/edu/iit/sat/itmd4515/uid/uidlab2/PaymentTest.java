@@ -8,11 +8,10 @@ import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Payment;
 import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Rental;
 import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Staff;
 import jakarta.validation.ConstraintViolation;
-import org.hibernate.Session;
-import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.util.Date;
+import org.hibernate.Session;
+import org.junit.jupiter.api.Test;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -24,6 +23,7 @@ public class PaymentTest extends DatabaseTest {
         assertThat(validator.validate(inventory).stream().map(ConstraintViolation::getMessage))
             .containsExactly(
                 "must not be null",
+                "must not be null",
                 "must not be null"
             );
     }
@@ -31,6 +31,7 @@ public class PaymentTest extends DatabaseTest {
     @Test
     public void validPojo() {
         Payment payment = new Payment();
+        payment.setPaymentId((short) 0);
         payment.setCustomer(new Customer());
         payment.setStaff(new Staff());
         payment.setAmount(BigDecimal.ZERO);

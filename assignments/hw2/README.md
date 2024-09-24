@@ -42,9 +42,9 @@ the full list of tables and columns.
 
 > Discuss any other issues or insights you had with Lab 2.
 
-I had issues in the beginning with the Hibernate con guration. Although the
+I had issues in the beginning with the Hibernate configuration. Although the
 [Getting Started](https://docs.jboss.org/hibernate/orm/6.6/quickstart/html_single/)
-guide is helpful, there are multiple ways to con gure the database connection
+guide is helpful, there are multiple ways to configure the database connection
 that are not immediately clear (*hibernate.properties*, *hibernate.cfg.xml* and
 *persistence.xml*). Moreover, most examples of Hibernate implementation online
 are tightly coupled with [Spring framework](https://spring.io/).
@@ -80,7 +80,7 @@ IDEA. I suspect it is due to the JavaFX version 11 and later that requires a
 modular project structure and run configuration.
 
 ```sh
-java -- module-path $PATH_TO_FX \
+java --module-path $PATH_TO_FX \
   --add-modules javafx.controls,javafx.fxml \
   -jar build/libs/uid-lab2-1.0-SNAPSHOT.jar
 ```

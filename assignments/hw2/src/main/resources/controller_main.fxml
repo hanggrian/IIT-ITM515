@@ -74,7 +74,7 @@
   </MenuBar>
   <MasterDetailPane
     fx:id="masterDetailPane"
-    dividerPosition="0.5"
+    dividerPosition="0.6"
     VBox.vgrow="ALWAYS">
     <masterNode>
       <VBox>
@@ -244,7 +244,7 @@
             </Label>
             <Label
               fx:id="subtitleLabel"
-              text="120 min., Horror, English">
+              text="120m, Horror, English">
               <font>
                 <Font name="Verdana" size="14.0"/>
               </font>
@@ -263,7 +263,7 @@
             <Label
               fx:id="captionLabel"
               wrapText="true"
-              text="120 min. in English">
+              text="John, Jack">
               <font>
                 <Font name="Verdana Bold" size="10.0"/>
               </font>

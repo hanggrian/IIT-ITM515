@@ -9,7 +9,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-
 import java.util.Date;
 
 /**
@@ -22,8 +21,9 @@ import java.util.Date;
 public class Rental {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "rental_id")
-    private int rentalId;
+    @Column(name = "rental_id", nullable = false)
+    @NotNull
+    private Integer rentalId;
 
     @Column(name = "rental_date", nullable = false)
     @NotNull

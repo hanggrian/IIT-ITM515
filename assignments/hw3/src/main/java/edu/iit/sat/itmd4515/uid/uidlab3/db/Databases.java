@@ -11,10 +11,12 @@ import jakarta.validation.ValidatorFactory;
  * Hibernate utility class to create entity manager and validator instances.
  */
 public final class Databases {
-    private Databases() {}
-
     private static EntityManagerFactory entityManagerFactory;
     private static ValidatorFactory validatorFactory;
+
+    private static final String PERSISTENCE_UNIT = "sakila";
+
+    private Databases() {}
 
     /**
      * Returns a session from existing or newly-created factory.
@@ -23,7 +25,7 @@ public final class Databases {
         if (entityManagerFactory != null) {
             return entityManagerFactory.createEntityManager();
         }
-        entityManagerFactory = Persistence.createEntityManagerFactory("sakila");
+        entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
         return entityManagerFactory.createEntityManager();
     }
 

@@ -20,8 +20,9 @@ import jakarta.validation.constraints.NotNull;
 public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "inventory_id")
-    private int inventoryId;
+    @Column(name = "inventory_id", nullable = false)
+    @NotNull
+    private Integer inventoryId;
 
     @ManyToOne
     @JoinColumn(name = "film_id", nullable = false)

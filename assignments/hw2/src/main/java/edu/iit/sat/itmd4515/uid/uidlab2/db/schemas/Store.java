@@ -21,8 +21,9 @@ import jakarta.validation.constraints.NotNull;
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "store_id")
-    private byte storeId;
+    @Column(name = "store_id", nullable = false)
+    @NotNull
+    private Byte storeId;
 
     @OneToOne
     @JoinColumn(name = "manager_staff_id", nullable = false, unique = true)

@@ -19,6 +19,7 @@ public class InventoryTest extends DatabaseTest {
         assertThat(validator.validate(inventory).stream().map(ConstraintViolation::getMessage))
             .containsExactly(
                 "must not be null",
+                "must not be null",
                 "must not be null"
             );
     }
@@ -26,6 +27,7 @@ public class InventoryTest extends DatabaseTest {
     @Test
     public void validPojo() {
         Inventory inventory = new Inventory();
+        inventory.setInventoryId(0);
         inventory.setFilm(new Film());
         inventory.setStore(new Store());
 

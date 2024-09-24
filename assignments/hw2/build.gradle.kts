@@ -26,7 +26,7 @@ java.toolchain.languageVersion.set(jdkVersion)
 checkstyle.toolVersion = libs.versions.checkstyle.get()
 
 application {
-    applicationName = "Sakila Rental Viewer"
+    applicationName = "Sakila Rentals"
     mainClass.set("$releaseGroup.${releaseArtifact.replace("-", "")}.SakilaApp")
 }
 

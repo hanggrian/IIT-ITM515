@@ -14,12 +14,16 @@ public class LanguageTest extends DatabaseTest {
         language.setName(stringSized(21));
 
         assertThat(validator.validate(language).stream().map(ConstraintViolation::getMessage))
-            .containsExactly("size must be between 0 and 20");
+            .containsExactly(
+                "must not be null",
+                "size must be between 0 and 20"
+            );
     }
 
     @Test
     public void validPojo() {
         Language language = new Language();
+        language.setLanguageId((byte) 0);
         language.setName("");
 
         assertThat(validator.validate(language)).isEmpty();

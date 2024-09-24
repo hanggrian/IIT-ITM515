@@ -10,7 +10,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
 import java.util.Date;
 
 /**
@@ -23,8 +22,9 @@ import java.util.Date;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
-    private short customerId;
+    @Column(name = "customer_id", nullable = false)
+    @NotNull
+    private Short customerId;
 
     @ManyToOne
     @JoinColumn(name = "store_id", nullable = false)

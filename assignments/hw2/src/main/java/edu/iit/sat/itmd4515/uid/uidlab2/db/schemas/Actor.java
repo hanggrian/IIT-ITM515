@@ -9,7 +9,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,8 +22,9 @@ import java.util.Set;
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "actor_id")
-    private short actorId;
+    @Column(name = "actor_id", nullable = false)
+    @NotNull
+    private Short actorId;
 
     @Column(name = "first_name", nullable = false, length = 45)
     @NotNull

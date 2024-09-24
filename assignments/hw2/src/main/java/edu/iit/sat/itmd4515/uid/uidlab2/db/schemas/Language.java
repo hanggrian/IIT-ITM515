@@ -19,8 +19,9 @@ import jakarta.validation.constraints.Size;
 public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "language_id")
-    private byte languageId;
+    @Column(name = "language_id", nullable = false)
+    @NotNull
+    private Byte languageId;
 
     @Column(name = "name", nullable = false, length = 20)
     @NotNull

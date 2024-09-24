@@ -18,8 +18,9 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "film_text")
 public class FilmText {
     @Id
-    @Column(name = "film_id")
-    private short filmId;
+    @Column(name = "film_id", nullable = false)
+    @NotNull
+    private Short filmId;
 
     @OneToOne
     @MapsId

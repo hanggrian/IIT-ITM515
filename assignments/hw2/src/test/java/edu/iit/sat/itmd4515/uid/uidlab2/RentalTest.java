@@ -6,9 +6,8 @@ import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Inventory;
 import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Rental;
 import edu.iit.sat.itmd4515.uid.uidlab2.db.schemas.Staff;
 import jakarta.validation.ConstraintViolation;
-import org.junit.jupiter.api.Test;
-
 import java.util.Date;
+import org.junit.jupiter.api.Test;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -22,6 +21,7 @@ public class RentalTest extends DatabaseTest {
                 "must not be null",
                 "must not be null",
                 "must not be null",
+                "must not be null",
                 "must not be null"
             );
     }
@@ -29,6 +29,7 @@ public class RentalTest extends DatabaseTest {
     @Test
     public void validPojo() {
         Rental rental = new Rental();
+        rental.setRentalId(0);
         rental.setRentalDate(new Date());
         rental.setInventory(new Inventory());
         rental.setCustomer(new Customer());

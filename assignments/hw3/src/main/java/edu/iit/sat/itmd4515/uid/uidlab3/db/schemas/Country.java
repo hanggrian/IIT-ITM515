@@ -19,8 +19,9 @@ import jakarta.validation.constraints.Size;
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "country_id")
-    private short countryId;
+    @Column(name = "country_id", nullable = false)
+    @NotNull
+    private Short countryId;
 
     @Column(name = "country", nullable = false, length = 50)
     @NotNull
