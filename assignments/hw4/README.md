@@ -105,7 +105,7 @@ small JavaFX application that can be run with the following command:
 
 ## Diagrams
 
-<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/diagram1.svg"><br><small>Diagram 1 &mdash; CTA station & train diagram</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/diagram1.svg"><br><small>Diagram 1 &mdash; CTA station diagram</small>
 
 ## Screenshots
 
@@ -117,23 +117,23 @@ small JavaFX application that can be run with the following command:
 
 ### CRUD Operations
 
-<img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_1.png"><br><small>Screenshot 3.1 &mdash; READ station</small>
+<img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_1.png"><br><small>Screenshot 2.1 &mdash; READ station</small>
 
 Stations can be listed using **List All** action from the menu bar or context
 menu. Inversely, the station list can also be used to list all tracks the
 station belongs to.
 
-<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_2.png"><br><small>Screenshot 3.2 &mdash; CREATE track station</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_2.png"><br><small>Screenshot 2.2 &mdash; CREATE track station</small>
 
 Upon clicking **Add to Track**, a dialog of list choice will appear requiring
 the user to select a track to add the station to.
 
-<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_3.png"><br><small>Screenshot 3.3 &mdash; UPDATE track</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_3.png"><br><small>Screenshot 2.3 &mdash; UPDATE track</small>
 
 The 24-hour status of track and elevator/parking feature of station can be
 toggled using the **Toggle Status/Feature** action.
 
-<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_4.png"><br><small>Screenshot 3.4 &mdash; DELETE station</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/screenshot2_4.png"><br><small>Screenshot 2.4 &mdash; DELETE station</small>
 
 When deleting a station, the user will be prompted with a confirmation dialog
 before the operation is executed.

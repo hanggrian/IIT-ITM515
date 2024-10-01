@@ -27,7 +27,7 @@ checkstyle.toolVersion = libs.versions.checkstyle.get()
 
 application {
     applicationName = "Sakila Rentals"
-    mainClass.set("$releaseGroup.${releaseArtifact.replace("-", "")}.SakilaApp")
+    mainClass.set("$releaseGroup.$releaseArtifact.SakilaApp")
 }
 
 javafx {

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox
+  xmlns="http://javafx.com/javafx"
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="edu.iit.sat.itmd4515.hwijaya.fp.MainController">
+  <MenuBar>
+    <Menu
+      mnemonicParsing="false"
+      text="File">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#quit"
+        text="Quit"
+        accelerator="SHORTCUT+Q"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Edit">
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="toggle24hMenu"
+        onAction="#toggle24h"
+        text="Toggle 24H Status"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="toggleElevatorMenu"
+        onAction="#toggleElevator"
+        text="Toggle Elevator Feature"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="toggleParkingMenu"
+        onAction="#toggleParking"
+        text="Toggle Parking Feature"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="deleteStationMenu"
+        onAction="#deleteStation"
+        text="Delete Station"/>
+      <SeparatorMenuItem/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="changeSeatMenu"
+        onAction="#changeSeat"
+        text="Change Seat Count"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="changeSerialMenu"
+        onAction="#changeSerial"
+        text="Change Serial Number"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="View">
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="listStationsMenu"
+        onAction="#listStations"
+        text="List Stations"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="listTracksMenu"
+        onAction="#listTracks"
+        text="List Tracks"/>
+      <SeparatorMenuItem/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="listTrainsMenu"
+        onAction="#listTrains"
+        text="List Trains"/>
+      <MenuItem
+        mnemonicParsing="false"
+        fx:id="listCarsMenu"
+        onAction="#listCars"
+        text="List Cars"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Window">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#minimize"
+        text="Minimize"
+        accelerator="SHORTCUT+M"/>
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#zoom"
+        text="Zoom"/>
+    </Menu>
+    <Menu
+      mnemonicParsing="false"
+      text="Help">
+      <MenuItem
+        mnemonicParsing="false"
+        onAction="#about"
+        text="About"/>
+    </Menu>
+  </MenuBar>
+  <SplitPane
+    fx:id="splitPane"
+    orientation="VERTICAL"
+    dividerPositions="0.5"
+    VBox.vgrow="ALWAYS">
+    <HBox spacing="10">
+      <padding>
+        <Insets topRightBottomLeft="10"/>
+      </padding>
+      <TitledPane
+        text="Tracks"
+        collapsible="false"
+        maxHeight="Infinity">
+        <ListView fx:id="trackList">
+          <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="listStationsMenu2"
+                  onAction="#listStations"
+                  text="List Stations"/>
+                <SeparatorMenuItem/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="toggle24hMenu2"
+                  onAction="#toggle24h"
+                  text="Toggle 24H Status"/>
+              </items>
+            </ContextMenu>
+          </contextMenu>
+        </ListView>
+      </TitledPane>
+      <TitledPane
+        text="Stations"
+        collapsible="false"
+        maxHeight="Infinity"
+        HBox.hgrow="ALWAYS">
+        <ListView fx:id="stationList">
+          <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="listTracksMenu2"
+                  onAction="#listTracks"
+                  text="List Tracks"/>
+                <SeparatorMenuItem/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="toggleElevatorMenu2"
+                  onAction="#toggleElevator"
+                  text="Toggle Elevator Feature"/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="toggleParkingMenu2"
+                  onAction="#toggleParking"
+                  text="Toggle Parking Feature"/>
+                <SeparatorMenuItem/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="addToTrackMenu"
+                  onAction="#addToTrack"
+                  text="Add to Track"/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="removeFromTrackMenu"
+                  onAction="#removeFromTrack"
+                  text="Remove from Track"/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="deleteStationMenu2"
+                  onAction="#deleteStation"
+                  text="Delete Station"/>
+              </items>
+            </ContextMenu>
+          </contextMenu>
+        </ListView>
+      </TitledPane>
+    </HBox>
+    <HBox spacing="10">
+      <padding>
+        <Insets topRightBottomLeft="10"/>
+      </padding>
+      <TitledPane
+        text="Cars"
+        collapsible="false"
+        maxHeight="Infinity">
+        <ListView fx:id="carList">
+          <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="listTrainsMenu2"
+                  onAction="#listTrains"
+                  text="List Trains"/>
+                <SeparatorMenuItem/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="changeSeatMenu2"
+                  onAction="#changeSeat"
+                  text="Change Seat Count"/>
+              </items>
+            </ContextMenu>
+          </contextMenu>
+        </ListView>
+      </TitledPane>
+      <TitledPane
+        text="Trains"
+        collapsible="false"
+        maxHeight="Infinity"
+        HBox.hgrow="ALWAYS">
+        <ListView fx:id="trainList">
+          <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="listCarsMenu2"
+                  onAction="#listCars"
+                  text="List Cars"/>
+                <SeparatorMenuItem/>
+                <MenuItem
+                  mnemonicParsing="false"
+                  fx:id="changeSerialMenu2"
+                  onAction="#changeSerial"
+                  text="Change Serial Number"/>
+              </items>
+            </ContextMenu>
+          </contextMenu>
+        </ListView>
+      </TitledPane>
+    </HBox>
+  </SplitPane>
+</VBox>
