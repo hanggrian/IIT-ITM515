@@ -150,8 +150,8 @@ public class MainController implements Initializable {
             .getSelectionModel()
             .getSelectedItems()
             .stream()
-            .flatMap(track -> track.getTrains().stream())
-            .forEach(station -> trainList.getSelectionModel().select(station));
+            .flatMap(car -> car.getTrainCars().stream())
+            .forEach(trainCar -> trainList.getSelectionModel().select(trainCar.getTrain()));
         trainList.requestFocus();
     }
 
@@ -162,8 +162,8 @@ public class MainController implements Initializable {
             .getSelectionModel()
             .getSelectedItems()
             .stream()
-            .flatMap(station -> station.getCars().stream())
-            .forEach(track -> carList.getSelectionModel().select(track));
+            .flatMap(train -> train.getTrainCars().stream())
+            .forEach(trainCar -> carList.getSelectionModel().select(trainCar.getCar()));
         carList.requestFocus();
     }
 

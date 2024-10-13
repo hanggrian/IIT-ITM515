@@ -1,5 +1,6 @@
 package edu.iit.sat.itmd4515.hanggrian.fp;
 
+import edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Track;
 import edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Train;
 import jakarta.validation.ConstraintViolation;
 import java.time.Year;
@@ -12,12 +13,11 @@ public class TrainTest extends DatabaseTest {
     public void invalid() {
         Train train = new Train();
         train.setLocomotiveSerial(stringSized(21));
-        train.setTrackColor(stringSized(11));
+        train.setTrack(new Track());
 
         assertThat(validator.validate(train).stream().map(ConstraintViolation::getMessage))
             .containsExactly(
                 "size must be between 0 and 20",
-                "size must be between 0 and 10",
                 "must not be null"
             );
     }
@@ -27,7 +27,7 @@ public class TrainTest extends DatabaseTest {
         Train train = new Train();
         train.setLocomotiveSerial("");
         train.setSince(Year.now());
-        train.setTrackColor("");
+        train.setTrack(new Track());
 
         assertThat(validator.validate(train)).isEmpty();
     }

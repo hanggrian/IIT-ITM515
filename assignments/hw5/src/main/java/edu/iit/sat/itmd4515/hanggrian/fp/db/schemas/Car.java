@@ -1,15 +1,13 @@
 package edu.iit.sat.itmd4515.hanggrian.fp.db.schemas;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -26,13 +24,8 @@ public class Car {
     @NotNull
     private Integer seats;
 
-    @ManyToMany
-    @JoinTable(
-        name = "train_car",
-        joinColumns = @JoinColumn(name = "car_no"),
-        inverseJoinColumns = @JoinColumn(name = "train_id")
-    )
-    private Set<Train> trains = new HashSet<>();
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private Set<TrainCar> trainCars;
 
     public String getCarNo() {
         return carNo;
@@ -50,12 +43,12 @@ public class Car {
         this.seats = seats;
     }
 
-    public Set<Train> getTrains() {
-        return trains;
+    public Set<TrainCar> getTrainCars() {
+        return trainCars;
     }
 
-    public void setTrains(Set<Train> trains) {
-        this.trains = trains;
+    public void setTrainCars(Set<TrainCar> trainCars) {
+        this.trainCars = trainCars;
     }
 
     @Override

@@ -5,13 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.time.Year;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -32,13 +33,12 @@ public class Train {
     @NotNull
     private Year since;
 
-    @Column(name = "track_color", nullable = false, length = 10)
-    @NotNull
-    @Size(max = 10)
-    private String trackColor;
+    @ManyToOne
+    @JoinColumn(name = "track_color", nullable = false)
+    private Track track;
 
-    @ManyToMany(mappedBy = "trains")
-    private Set<Car> cars = new HashSet<>();
+    @OneToMany(mappedBy = "train")
+    private Set<TrainCar> trainCars;
 
     public Integer getTrainId() {
         return trainId;
@@ -64,20 +64,20 @@ public class Train {
         this.since = since;
     }
 
-    public String getTrackColor() {
-        return trackColor;
+    public Track getTrack() {
+        return track;
     }
 
-    public void setTrackColor(String trackColor) {
-        this.trackColor = trackColor;
+    public void setTrack(Track track) {
+        this.track = track;
     }
 
-    public Set<Car> getCars() {
-        return cars;
+    public Set<TrainCar> getTrainCars() {
+        return trainCars;
     }
 
-    public void setCars(Set<Car> cars) {
-        this.cars = cars;
+    public void setTrainCars(Set<TrainCar> trainCars) {
+        this.trainCars = trainCars;
     }
 
     @Override
@@ -92,12 +92,12 @@ public class Train {
         return trainId.equals(other.trainId)
             && locomotiveSerial.equals(other.locomotiveSerial)
             && since.equals(other.since)
-            && trackColor.equals(other.trackColor);
+            && track.equals(other.track);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(trainId, locomotiveSerial, since, trackColor);
+        return Objects.hash(trainId, locomotiveSerial, since, track);
     }
 
     @Override
@@ -107,7 +107,7 @@ public class Train {
                 .append(trainId);
 
         List<String> features = new ArrayList<>();
-        features.add(String.format("%d cars", cars.size()));
+        features.add(String.format("%d cars", trainCars.size()));
         if (locomotiveSerial != null) {
             features.add(locomotiveSerial);
         }
