@@ -4,4 +4,4 @@ pluginManagement.repositories {
 }
 dependencyResolutionManagement.repositories.mavenCentral()
 
-rootProject.name = "hwijaya-lab2"
+rootProject.name = "hanggrian-lab2"

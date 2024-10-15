@@ -9,7 +9,7 @@
 <VBox
   xmlns="http://javafx.com/javafx"
   xmlns:fx="http://javafx.com/fxml"
-  fx:controller="edu.iit.sat.itmd4515.hwijaya.lab2.MainController">
+  fx:controller="edu.iit.sat.itmd4515.hanggrian.lab2.MainController">
   <MenuBar>
     <Menu
       mnemonicParsing="false"
