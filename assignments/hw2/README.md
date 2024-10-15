@@ -28,17 +28,18 @@ the full list of tables and columns.
 > Add the following dependencies to your *pom.xml* using a scope you feel is
   appropriate:
 >
-> 1. **junit** (latest non-beta version of junit-jupiter-engine 5)
-> 1. **mysql-connector-java** (latest non-beta version of 8)
+> 1.  **junit** (latest non-beta version of junit-jupiter-engine 5)
+> 1.  **mysql-connector-java** (latest non-beta version of 8)
 >
 > What scope(s) did you select and why?
 
-1. The JUnit and other test dependencies are imported using `testImplementation`
-   notation because the test classes are not intended for the production build.
-1. The MySQL connector is imported using [non-transitive](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)
-   `implementation` notation.
-1. Additionaly, the `compileOnly` notation is used for Jakarta EE annotations.
-   They are just annotations and not needed in the runtime.
+1.  The JUnit and other test dependencies are imported using
+    `testImplementation` notation because the test classes are not intended for
+    the production build.
+1.  The MySQL connector is imported using [non-transitive](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_separation)
+    `implementation` notation.
+1.  Additionaly, the `compileOnly` notation is used for Jakarta EE annotations.
+    They are just annotations and not needed in the runtime.
 
 > Discuss any other issues or insights you had with Lab 2.
 
