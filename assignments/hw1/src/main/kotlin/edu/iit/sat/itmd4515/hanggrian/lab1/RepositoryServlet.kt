@@ -1,4 +1,4 @@
-package edu.iit.sat.itmd4515.hwijaya.lab1
+package edu.iit.sat.itmd4515.hanggrian.lab1
 
 import jakarta.servlet.annotation.WebServlet
 import jakarta.servlet.http.HttpServlet

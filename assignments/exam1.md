@@ -85,8 +85,9 @@ better and I am glad to have this experience.
 
 The database schema starts with **Station** where passengers board trains and
 **Track** or line color of the train. A station may have additional features
-such as elevator access and parking area as illustrated in the ['L' map](https://www.transitchicago.com/assets/1/6/ctamap_Lsystem.png). The **TrackStation** table is a junction that represents a
-station that can belong to more than one track.
+such as elevator access and parking area as illustrated in the ['L' map](https://www.transitchicago.com/assets/1/6/ctamap_Lsystem.png).
+The **TrackStation** table is a junction that represents a station that can
+belong to more than one track.
 
 The next entity is **Train,** a car unit with a locomotive engine pulling other
 **Cars,** a unit carrying passengers. They are connected to **TrainCar** which

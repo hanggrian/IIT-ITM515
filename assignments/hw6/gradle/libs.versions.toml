@@ -1,0 +1,51 @@
+[versions]
+jdk = "17"
+jre = "11" # min for Hibernate
+hibernate = "6.6.0.Final"
+checkstyle = "10.17.0"
+slf4j = "2.0.16"
+
+[plugins]
+cargo = "com.bmuschko.cargo:2.9.0"
+hibernate = { id = "org.hibernate.orm", version.ref = "hibernate" }
+
+[libraries]
+# lint
+rulebook-checkstyle = "com.hanggrian.rulebook:rulebook-checkstyle:0.1"
+# main
+bind-api = "jakarta.xml.bind:jakarta.xml.bind-api:4.0.2"
+cdi-api = "jakarta.enterprise:jakarta.enterprise.cdi-api:4.1.0"
+rs-api = "jakarta.ws.rs:jakarta.ws.rs-api:4.0.0"
+servlet-api = "jakarta.servlet:jakarta.servlet-api:6.1.0"
+ejb-api = "jakarta.ejb:jakarta.ejb-api:4.0.1"
+jakartaee-api = "jakarta.platform:jakarta.jakartaee-api:10.0.0"
+deployment-client = "org.glassfish.main.deployment:deployment-client:5.1.0"
+cargo-ant = "org.codehaus.cargo:cargo-ant:1.10.14"
+hibernate-annotations = "org.hibernate:hibernate-annotations:3.5.6-Final"
+hibernate-core = { module = "org.hibernate.orm:hibernate-core", version.ref = "hibernate" }
+hibernate-validator = "org.hibernate.validator:hibernate-validator:8.0.1.Final"
+jaxb-runtime = "org.glassfish.jaxb:jaxb-runtime:4.0.5"
+persistence-jpa = "org.eclipse.persistence:org.eclipse.persistence.jpa:4.0.4"
+expressly = "org.glassfish.expressly:expressly:5.0.0"
+mysql-connector-java = "mysql:mysql-connector-java:8.0.33"
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
+# test
+jupiter = "org.junit.jupiter:junit-jupiter-engine:5.11.0"
+truth = "com.google.truth:truth:1.4.4"
+
+[bundles]
+jakarta = ["bind-api", "cdi-api", "rs-api", "servlet-api", "ejb-api", "jakartaee-api"]
+cargo = ["deployment-client", "cargo-ant"]
+hibernate = [
+  "hibernate-core",
+  "mysql-connector-java",
+  "slf4j-api",
+  "slf4j-simple",
+  "jaxb-runtime",
+  "persistence-jpa",
+]
+hibernate-validator = [
+  "hibernate-validator",
+  "expressly",
+]

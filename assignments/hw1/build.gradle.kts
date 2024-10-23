@@ -31,7 +31,9 @@ cargo {
     withGroovyBuilder {
         "deployable" {
             "setContext"("/")
-            "setFile"(layout.buildDirectory.file("libs/$releaseArtifact-$releaseVersion.war"))
+            "setFile"(
+                layout.buildDirectory.file("libs/hanggrian-$releaseArtifact-$releaseVersion.war"),
+            )
         }
     }
 }

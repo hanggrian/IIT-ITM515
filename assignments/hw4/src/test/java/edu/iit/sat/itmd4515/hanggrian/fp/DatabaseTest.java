@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-public class DatabaseTest {
+public abstract class DatabaseTest {
     protected Validator validator;
     protected EntityManager entityManager;
 
