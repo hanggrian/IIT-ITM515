@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!doctype html>
+<!DOCTYPE html>
 <script>
   function onRepositorySelected(tag, id) {
     tag.href = "repository?id=" + id + "&dark-mode=" + isDarkMode()

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+  version="3.0"
+  xmlns="https://jakarta.ee/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+  https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+  <persistence-unit name="sakila" transaction-type="JTA">
+    <jta-data-source>java:app/jdbc/sakila</jta-data-source>
+
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Actor</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Address</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Category</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.City</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Category</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Country</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Customer</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Film</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.FilmActor</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.FilmCategory</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.FilmText</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Inventory</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Language</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Payment</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Rental</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Staff</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Store</class>
+
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

@@ -1,6 +1,6 @@
 package edu.iit.sat.itmd4515.hanggrian.fp.db;
 
-import edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Language;
+import edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Film;
 import jakarta.annotation.sql.DataSourceDefinition;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -8,7 +8,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 /**
- * {@link Language} Data Access Object.
+ * {@link Film} Data Access Object.
  */
 @DataSourceDefinition(
     name = "java:app/jdbc/sakila",
@@ -24,26 +24,23 @@ import jakarta.transaction.Transactional;
     }
 )
 @Stateless
-public class Languages {
+public class Films {
     @PersistenceContext(unitName = "sakila") public EntityManager manager;
 
-    public boolean isEmpty() {
+    public Film selectLast() {
         return manager
-            .createQuery("SELECT 1 FROM Language l")
+            .createQuery("FROM Film ORDER BY filmId DESC", Film.class)
             .setMaxResults(1)
-            .getResultList()
-            .isEmpty();
-    }
-
-    public Language selectOneByName(String name) {
-        return manager
-            .createQuery("FROM Language language WHERE LOWER(language.name)= :name", Language.class)
-            .setParameter("name", name.toLowerCase())
             .getSingleResult();
     }
 
     @Transactional
-    public void insert(Language language) {
-        manager.persist(language);
+    public void insert(Film film) {
+        manager.persist(film);
+    }
+
+    @Transactional
+    public void delete(Film film) {
+        manager.remove(film);
     }
 }

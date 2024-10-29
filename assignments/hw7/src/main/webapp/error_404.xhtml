@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="jakarta.faces.html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  lang="en">
+
+<h:head>
+  <meta charset="UTF-8"/>
+  <title>ITMD 4/515 — Lab 7</title>
+
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+
+  <link rel="stylesheet" href="styles/main.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+</h:head>
+
+<h:body>
+<div class="wrapper">
+  <header>
+    <ui:insert>
+      <ui:include src="base_header.xhtml"/>
+    </ui:insert>
+  </header>
+  <section>
+    <h1 style="text-align: center;">Error 404</h1>
+    <h4>We're very sorry!</h4>
+    <p>The page you are looking for does not exist.</p>
+  </section>
+</div>
+<footer>
+  <ui:insert>
+    <ui:include src="base_footer.xhtml"/>
+  </ui:insert>
+</footer>
+<script src="scripts/scale.fix.js"></script>
+</h:body>
+
+</html>

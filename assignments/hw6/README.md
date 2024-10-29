@@ -45,7 +45,7 @@ There is no major difference in the user interface and experience. Similar to
 *Lab 3*, the button state is disabled until all fields and checks are proper.
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot3_1.png">
-<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot3_2.png"><br><small>Screenshot 2.1 & 2.2 &mdash; Input validation in action</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot3_2.png"><br><small>Screenshot 3.1 & 3.2 &mdash; Form output message</small>
 
 Previously without EJB service layers, the `EntityManager` was created by the
 `EntityManagerFactory` in the utility class and passed on to the DAO classes.

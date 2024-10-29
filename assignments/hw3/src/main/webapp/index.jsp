@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,7 +43,7 @@
           id="title-text"
           name="title"
           type="text"
-          title="Title must be present and no longer than 128 characters.">
+          title="Title must be present and no longer than 128 characters."/>
 
         <label for="description-textarea">Description:</label>
         <textarea
@@ -60,7 +60,7 @@
           type="text"
           inputmode="numeric"
           oninput="this.value = this.value.replace(/\D+/g, '')"
-          title="Release year input is numeric-only, can be empty.">
+          title="Release year input is numeric-only, can be empty."/>
 
         <label for="language-select">Language:</label>
         <select
@@ -84,13 +84,13 @@
           min="1"
           max="9"
           value="5"
-          title="Rental duration is between 1 to 9 days.">
+          title="Rental duration is between 1 to 9 days."/>
         <input
           class="grid-span2"
           id="rental-duration-text"
           name="rental-duration"
           type="text"
-          title="Rental duration is between 1 to 9 days.">
+          title="Rental duration is between 1 to 9 days."/>
 
         <label for="rental-rate-text">Rental Rate:</label>
         <label>$</label>
@@ -101,11 +101,11 @@
           type="text"
           inputmode="decimal"
           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
-          title="Rental rate input is decimal-only, cannot be zero.">
-        <label></label>
+          title="Rental rate input is decimal-only, cannot be zero."/>
+        <label/>
 
         <label for="length-text">Length:</label>
-        <label></label>
+        <label/>
         <input
           class="grid-span2"
           id="length-text"
@@ -113,7 +113,7 @@
           type="text"
           inputmode="numeric"
           oninput="this.value = this.value.replace(/\D+/g, '')"
-          title="Length input is numeric-only, cannot be zero.">
+          title="Length input is numeric-only, cannot be zero."/>
         <label>min.</label>
 
         <label for="replacement-cost-text">Replacement Cost:</label>
@@ -125,8 +125,8 @@
           type="text"
           inputmode="decimal"
           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
-          title="Replacement cost input is decimal-only, cannot be zero.">
-        <label></label>
+          title="Replacement cost input is decimal-only, cannot be zero."/>
+        <label/>
 
         <label>Rating:</label>
         <div class="grid-radios" style="flex-direction: row;">
