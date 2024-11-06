@@ -52,7 +52,7 @@ command:
 ./gradlew run
 ```
 
-## Diagrams
+## Diagram
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw5/diagram1.svg"><br><small>Diagram 1 &mdash; CTA station & train diagram</small>
 

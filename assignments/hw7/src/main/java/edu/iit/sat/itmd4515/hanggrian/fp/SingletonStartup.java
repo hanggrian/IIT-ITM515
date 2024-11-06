@@ -35,7 +35,6 @@ public class SingletonStartup {
                 + "Visit MySQL documentation for Sakila schema and data SQL scripts. "
                 + "https://dev.mysql.com/doc/index-other.html"
         );
-
         Language language = new Language();
         language.setName("English");
         languages.insert(language);

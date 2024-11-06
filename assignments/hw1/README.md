@@ -37,7 +37,7 @@ application.
 
 ## Screenshots
 
-### MySQL Installation
+### MySQL installation
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw1/screenshot1_1.png"><br><small>Screenshot 1.1 &mdash; New user **itmd4515**</small>
 
@@ -45,13 +45,13 @@ application.
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw1/screenshot1_3.png"><br><small>Screenshot 1.3 &mdash; Non-root login with access to default schema</small>
 
-### Introductory Maven Web Application
+### Introductory Maven web application
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw1/screenshot2_1.png"><br><small>Screenshot 2.1 &mdash; Homepage</small>
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw1/screenshot2_2.png"><br><small>Screenshot 2.2 &mdash; Repository page</small>
 
-### Source View
+### Source view
 
 <img width="640" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw1/screenshot3_1.png"><br><small>Screenshot 3.1 &mdash; Source view 1</small>
 

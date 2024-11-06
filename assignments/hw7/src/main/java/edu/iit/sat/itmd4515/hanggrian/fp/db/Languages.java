@@ -35,7 +35,7 @@ public class Languages {
             .isEmpty();
     }
 
-    public Language selectOneByName(String name) {
+    public Language selectByName(String name) {
         return manager
             .createQuery("FROM Language language WHERE LOWER(language.name)= :name", Language.class)
             .setParameter("name", name.toLowerCase())

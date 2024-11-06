@@ -24,7 +24,7 @@
   <div class="wrapper">
     <header>
       <ui:insert>
-        <ui:include src="base_header.xhtml"/>
+        <ui:include src="layouts/header.xhtml"/>
       </ui:insert>
     </header>
     <section>
@@ -38,6 +38,7 @@
               id="title-text"
               name="title"
               type="text"
+              placeholder="Title"
               title="Title must be present and no longer than 128 characters."/>
 
             <label for="description-textarea">Description:</label>
@@ -45,6 +46,7 @@
               class="grid-span4"
               id="description-textarea"
               name="description"
+              placeholder="Description"
               title="Description can be empty."></textarea>
 
             <label for="release-year-text">Release Year:</label>
@@ -55,6 +57,7 @@
               type="text"
               inputmode="numeric"
               oninput="this.value = this.value.replace(/\D+/g, '')"
+              placeholder="Release year"
               title="Release year input is numeric-only, can be empty."/>
 
             <label for="language-select">Language:</label>
@@ -85,6 +88,7 @@
               id="rental-duration-text"
               name="rental-duration"
               type="text"
+              placeholder="Days"
               title="Rental duration is between 1 to 9 days."/>
 
             <label for="rental-rate-text">Rental Rate:</label>
@@ -96,11 +100,12 @@
               type="text"
               inputmode="decimal"
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+              placeholder="Rental rate"
               title="Rental rate input is decimal-only, cannot be zero."/>
-            <label/>
+            <label></label>
 
             <label for="length-text">Length:</label>
-            <label/>
+            <label></label>
             <input
               class="grid-span2"
               id="length-text"
@@ -108,6 +113,7 @@
               type="text"
               inputmode="numeric"
               oninput="this.value = this.value.replace(/\D+/g, '')"
+              placeholder="Length"
               title="Length input is numeric-only, cannot be zero."/>
             <label>min.</label>
 
@@ -120,8 +126,9 @@
               type="text"
               inputmode="decimal"
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+              placeholder="Replacement cost"
               title="Replacement cost input is decimal-only, cannot be zero."/>
-            <label/>
+            <label></label>
 
             <label>Rating:</label>
             <div class="grid-radios" style="flex-direction: row;">
@@ -245,19 +252,35 @@
               </div>
             </div>
 
-            <input class="grid-span5" id="submit" type="submit" value="Add Film" disabled="disabled"/>
+            <input
+              class="grid-span5"
+              id="submit"
+              type="submit"
+              value="Add Film"
+              disabled="disabled"/>
           </form>
         </div>
       </p>
+
       <h4 style="margin-top: 60px;">About</h4>
-      <p>Welcome to the Sakila Film Registrar, a simple servlet that executes POST request to insert a new film into the Sakila sample database. The web application validates user input and will only enable the submit button if the form is filled out correctly.</p>
+      <p>
+        Welcome to the Sakila Film Registrar, a simple servlet that executes POST request to insert
+        a new film into the Sakila sample database. The web application validates user input and
+        will only enable the submit button if the form is filled out correctly.
+      </p>
+
       <h6>Webpage Theme</h6>
-      <p>This landing webpage was created using my <a href="https://github.com/hanggrian/materialist-theme/">website theme</a>. It is a fork of <a href="https://github.com/orderedlist/modernist">modernist</a> theme that swaps the classic view with a colorful material design style.</p>
+      <p>
+        This landing webpage was created using my
+        <a href="https://github.com/hanggrian/materialist-theme/">website theme</a>. It is a fork of
+        <a href="https://github.com/orderedlist/modernist">modernist</a> theme that swaps the
+        classic view with a colorful material design style.
+      </p>
     </section>
   </div>
   <footer>
     <ui:insert>
-      <ui:include src="base_footer.xhtml"/>
+      <ui:include src="layouts/footer.xhtml"/>
     </ui:insert>
   </footer>
   <script src="scripts/scale.fix.js"></script>

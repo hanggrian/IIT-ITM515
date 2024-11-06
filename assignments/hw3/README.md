@@ -74,7 +74,7 @@ application:
 ./gradlew cargoRedeployLocal
 ```
 
-## Diagrams
+## Diagram
 
 <img width="240" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/diagram1.svg"><br><small>Diagram 1 &mdash; Sakila UML diagram</small>
 

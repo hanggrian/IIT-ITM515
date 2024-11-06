@@ -43,7 +43,7 @@ public class SubmitServlet extends HttpServlet {
         film.setTitle(request.getParameter("title"));
         film.setDescription(request.getParameter("description"));
         film.setReleaseYear(Integer.parseInt(request.getParameter("release-year")));
-        film.setLanguage(languages.selectOneByName(request.getParameter("language")));
+        film.setLanguage(languages.selectByName(request.getParameter("language")));
         film.setRentalDuration((byte) Integer.parseInt(request.getParameter("rental-duration")));
         film.setRentalRate(new BigDecimal(request.getParameter("rental-rate")));
         film.setLength(Short.parseShort(request.getParameter("length")));

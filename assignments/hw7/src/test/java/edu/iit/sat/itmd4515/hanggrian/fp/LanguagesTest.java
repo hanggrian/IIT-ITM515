@@ -17,7 +17,7 @@ public class LanguagesTest extends DaoTest {
 
     @Test
     public void validDao() {
-        assertThat(languages.selectOneByName("english").getName())
+        assertThat(languages.selectByName("english").getName())
             .isEqualTo("English");
     }
 }

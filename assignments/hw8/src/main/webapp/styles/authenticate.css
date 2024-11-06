@@ -1,0 +1,43 @@
+.form-container {
+  width: 70%;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 150px 250px;
+  grid-gap: 10px;
+}
+
+label {
+  text-align: right;
+  white-space: wrap;
+}
+
+input[type="submit"] {
+  padding: 8px 16px 8px 16px;
+  border-radius: 4px;
+}
+
+.grid-span2 {
+  grid-column: span 2;
+}
+
+.submit-flat {
+  background-color: transparent;
+  border: none;
+  color: var(--primary);
+} .submit-flat:hover {
+  color: var(--primary-container);
+}
+
+.submit-raised {
+  background-color: var(--primary);
+  border: 1px solid var(--border);
+  color: #fafafa;
+} .submit-raised:hover {
+  background-color: var(--primary-container);
+  color: #fafafa;
+} .submit-raised:disabled {
+  background-color: var(--surface-container);
+  color: var(--button-text1);
+}

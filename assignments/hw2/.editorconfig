@@ -11,6 +11,9 @@ insert_final_newline = true
 [*.md]
 max_line_length = 80
 
+[*.{jsp,html,css,xml,xhtml}]
+max_line_length = 100
+
 [*.{java,kts}]
 indent_size = 4
 max_line_length = 100

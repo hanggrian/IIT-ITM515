@@ -32,7 +32,7 @@ public class FilmsTest extends DaoTest {
             () -> {
                 Film film = new Film();
                 film.setTitle("Lorem Ipsum");
-                film.setLanguage(languages.selectOneByName("english"));
+                film.setLanguage(languages.selectByName("english"));
                 film.setRentalDuration((byte) 1);
                 film.setRentalRate(new BigDecimal(2));
                 film.setReplacementCost(new BigDecimal(3));

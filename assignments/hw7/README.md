@@ -21,11 +21,13 @@ plugin.
 ./gradlew cargoRedeployLocal
 ```
 
-## Diagrams
+## Diagram
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw6/diagram1.svg"><br><small>Diagram 1 &mdash; Sakila UML diagram</small>
 
 ## Screenshots
+
+### Interface
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot2_1.png">
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot3_1.png"><br><small>Screenshot 2.1 & 2.2 &mdash; Form input and output</small>
@@ -62,7 +64,9 @@ enforcing input validation and facelets templating.
 </html>
 ```
 
-<img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw7/screenshot1.png"><br><small>Screenshot 3 &mdash; Input validation in action</small>
+### Error Routing
+
+<img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw7/screenshot1.png"><br><small>Screenshot 3 &mdash; Error 404</small>
 
 Errors are routed to a custom error page configured in Jakarta EE Web API
 `web.xml` descriptor. In this instance, an error 404 page is served when user

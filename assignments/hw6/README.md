@@ -27,7 +27,7 @@ Tests are handled by Jupiter and printed using Gradle logging abilities.
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw6/screenshot1.png"><br><small>Screenshot 1 &mdash; Command-line test</small>
 
-## Diagrams
+## Diagram
 
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw6/diagram1.svg"><br><small>Diagram 1 &mdash; Sakila UML diagram</small>
 
@@ -38,11 +38,15 @@ the CRUD operations.
 
 ## Screenshots
 
+### Input validation
+
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot2_1.png">
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot2_2.png"><br><small>Screenshot 2.1 & 2.2 &mdash; Input validation in action</small>
 
 There is no major difference in the user interface and experience. Similar to
 *Lab 3*, the button state is disabled until all fields and checks are proper.
+
+### Form output
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot3_1.png">
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw3/screenshot3_2.png"><br><small>Screenshot 3.1 & 3.2 &mdash; Form output message</small>

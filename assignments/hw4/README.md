@@ -103,7 +103,7 @@ small JavaFX application that can be run with the following command:
   and [data](https://github.com/hanggrian/IIT-ITM515/blob/main/assignments/hw4/cta_data.sql)
   must be imported.
 
-## Diagrams
+## Diagram
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw4/diagram1.svg"><br><small>Diagram 1 &mdash; CTA station diagram</small>
 

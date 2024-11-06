@@ -22,14 +22,25 @@
   <header>
     <h1>ITMD 4/515 &mdash; Lab 3</h1>
     <p>Hendra Wijaya</p>
-    <p class="view"><a href="http://github.com/hanggrian/IIT-ITM515/">View the Project on GitHub
-      <small>hanggrian/IIT-ITM515</small></a></p>
+    <p class="view">
+      <a href="http://github.com/hanggrian/IIT-ITM515/">
+        View the Project on GitHub <small>hanggrian/IIT-ITM515</small>
+      </a>
+    </p>
     <ul>
-      <li><a href="https://github.com/hanggrian/IIT-ITM515/zipball/main/">Download <strong>ZIP File</strong></a>
+      <li>
+        <a href="https://github.com/hanggrian/IIT-ITM515/zipball/main/">
+          Download <strong>ZIP File</strong>
+        </a>
       </li>
-      <li><a href="https://github.com/hanggrian/IIT-ITM515/tarball/main/">Download <strong>TAR Ball</strong></a>
+      <li>
+        <a href="https://github.com/hanggrian/IIT-ITM515/tarball/main/">
+          Download <strong>TAR Ball</strong>
+        </a>
       </li>
-      <li><a href="http://github.com/hanggrian/IIT-ITM515/">View On <strong>GitHub</strong></a></li>
+      <li>
+        <a href="http://github.com/hanggrian/IIT-ITM515/">View On <strong>GitHub</strong></a>
+      </li>
     </ul>
   </header>
   <section>
@@ -43,6 +54,7 @@
           id="title-text"
           name="title"
           type="text"
+          placeholder="Title"
           title="Title must be present and no longer than 128 characters."/>
 
         <label for="description-textarea">Description:</label>
@@ -50,6 +62,7 @@
           class="grid-span4"
           id="description-textarea"
           name="description"
+          placeholder="Description"
           title="Description can be empty."></textarea>
 
         <label for="release-year-text">Release Year:</label>
@@ -60,6 +73,7 @@
           type="text"
           inputmode="numeric"
           oninput="this.value = this.value.replace(/\D+/g, '')"
+          placeholder="Release year"
           title="Release year input is numeric-only, can be empty."/>
 
         <label for="language-select">Language:</label>
@@ -90,6 +104,7 @@
           id="rental-duration-text"
           name="rental-duration"
           type="text"
+          placeholder="Days"
           title="Rental duration is between 1 to 9 days."/>
 
         <label for="rental-rate-text">Rental Rate:</label>
@@ -101,11 +116,12 @@
           type="text"
           inputmode="decimal"
           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+          placeholder="Rental rate"
           title="Rental rate input is decimal-only, cannot be zero."/>
-        <label/>
+        <label></label>
 
         <label for="length-text">Length:</label>
-        <label/>
+        <label></label>
         <input
           class="grid-span2"
           id="length-text"
@@ -113,6 +129,7 @@
           type="text"
           inputmode="numeric"
           oninput="this.value = this.value.replace(/\D+/g, '')"
+          placeholder="Length"
           title="Length input is numeric-only, cannot be zero."/>
         <label>min.</label>
 
@@ -125,8 +142,9 @@
           type="text"
           inputmode="decimal"
           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+          placeholder="Replacement cost"
           title="Replacement cost input is decimal-only, cannot be zero."/>
-        <label/>
+        <label></label>
 
         <label>Rating:</label>
         <div class="grid-radios" style="flex-direction: row;">
@@ -254,15 +272,29 @@
       </form>
     </div>
     </p>
+
     <h4 style="margin-top: 60px;">About</h4>
-    <p>Welcome to the Sakila Film Registrar, a simple servlet that executes POST request to insert a new film into the Sakila sample database. The web application validates user input and will only enable the submit button if the form is filled out correctly.</p>
+    <p>
+      Welcome to the Sakila Film Registrar, a simple servlet that executes POST request to insert a
+      new film into the Sakila sample database. The web application validates user input and will
+      only enable the submit button if the form is filled out correctly.
+    </p>
+
     <h6>Webpage Theme</h6>
-    <p>This landing webpage was created using my <a href="https://github.com/hanggrian/materialist-theme/">website theme</a>. It is a fork of <a href="https://github.com/orderedlist/modernist">modernist</a> theme that swaps the classic view with a colorful material design style.</p>
+    <p>
+      This landing webpage was created using my
+      <a href="https://github.com/hanggrian/materialist-theme/">website theme</a>. It is a fork of
+      <a href="https://github.com/orderedlist/modernist">modernist</a> theme that swaps the classic
+      view with a colorful material design style.
+    </p>
   </section>
 </div>
 <footer>
   <p>Project maintained by <a href="http://github.com/hanggrian/">Hendra Anggrian</a></p>
-  <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist/">orderedlist</a></p>
+  <p>
+    Hosted on GitHub Pages &mdash; Theme by
+    <a href="https://github.com/orderedlist/">orderedlist</a>
+  </p>
 </footer>
 <script src="scripts/scale.fix.js"></script>
 <script src="scripts/sakila.js"></script>

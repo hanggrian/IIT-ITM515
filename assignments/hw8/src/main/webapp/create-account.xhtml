@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="jakarta.faces.html"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  lang="en">
+
+<h:head>
+  <meta charset="UTF-8"/>
+  <title>ITMD 4/515 — Lab 8</title>
+
+  <meta name="viewport" content="width=device-width"/>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+
+  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="styles/authenticate.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0"/>
+  <script src="scripts/theme.js"></script>
+  <script>
+
+  </script>
+
+  <!-- Primary meta tags -->
+  <meta name="title" content="IIT ITM515"/>
+  <meta name="description" content="Adv Software Programming at Illinois Tech — Fall 2024"/>
+</h:head>
+
+<h:body>
+  <div class="wrapper">
+    <header>
+      <ui:insert>
+        <ui:include src="layouts/header.xhtml"/>
+      </ui:insert>
+    </header>
+    <section>
+      <h1>Sign up</h1>
+
+      <form action="signup" method="POST">
+        <label for="first-name-text">First Name:</label>
+        <input
+          id="first-name-text"
+          name="first-name"
+          type="text"
+          placeholder="First Name"
+          title="First name is a short 50-characters with a leading capitalized letter."/>
+
+        <label for="last-name-text">Last Name:</label>
+        <input
+          id="last-name-text"
+          name="last-name"
+          type="text"
+          placeholder="Last Name"
+          title="Last name is a long 100-characters with a leading capitalized letter."/>
+
+        <!-- arbitrary gap -->
+        <label></label>
+        <label></label>
+
+        <label for="id-text">ID:</label>
+        <input
+          id="id-text"
+          name="id"
+          type="text"
+          placeholder="ID"
+          title="Username is all lowercase and no longer than 15 characters."/>
+
+        <label for="email-text">Email:</label>
+        <input
+          id="email-text"
+          name="email"
+          type="text"
+          placeholder="Email"
+          title="Must be in email format with '@' and domain name."/>
+
+        <label for="password">Password:</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          title="Password associated with the account."/>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input
+          id="confirm-password"
+          name="confirm-password"
+          type="password"
+          placeholder="Confirm Password"
+          title="Re-type the password again."/>
+
+        <div class="grid-span2" style="display: flex;">
+          <label style="flex-grow: 1;"></label>
+          <input
+            id="login-submit"
+            class="submit-flat"
+            type="submit"
+            value="Login"/>
+          <input
+            id="create-account-submit"
+            class="submit-raised"
+            type="submit"
+            value="Create Account"
+            disabled="disabled"/>
+        </div>
+      </form>
+    </section>
+    <footer>
+      <ui:insert>
+        <ui:include src="layouts/footer.xhtml"/>
+      </ui:insert>
+    </footer>
+  </div>
+  <script src="scripts/scale.fix.js"></script>
+  <script src="scripts/create-account.js"></script>
+</h:body>
+
+</html>

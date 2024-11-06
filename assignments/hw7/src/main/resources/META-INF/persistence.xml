@@ -27,7 +27,9 @@
     <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Store</class>
 
     <properties>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property
+        name="jakarta.persistence.schema-generation.database.action"
+        value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

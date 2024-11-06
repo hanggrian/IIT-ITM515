@@ -98,7 +98,7 @@ classpath.
 > MySQL server must be running and the Sakila database must exist. Otherwise,
   the application will throw an exception.
 
-## Diagrams
+## Diagram
 
 <img width="640" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw2/diagram1.svg"><br><small>Diagram 1 &mdash; Sakila UML diagram</small>
 
