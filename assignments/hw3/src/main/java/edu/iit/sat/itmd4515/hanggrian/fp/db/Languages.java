@@ -8,7 +8,7 @@ public final class Languages {
 
     public static Language selectOneByName(EntityManager manager, String name) {
         return manager
-            .createQuery("FROM Language WHERE LOWER(name)= :name", Language.class)
+            .createQuery("FROM Language WHERE LOWER(name) = :name", Language.class)
             .setParameter("name", name.toLowerCase())
             .getSingleResult();
     }

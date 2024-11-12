@@ -15,9 +15,9 @@ import java.util.Set;
 @Table(name = "role")
 public class Role {
     @Id
-    @Column(name = "role_title", nullable = false, length = 30)
+    @Column(name = "role_title", nullable = false, length = 15)
     @NotNull
-    @Size(max = 30)
+    @Size(max = 15)
     private String roleTitle;
 
     @ManyToMany(mappedBy = "roles")
@@ -57,9 +57,7 @@ public class Role {
         @Override
         public Role build() {
             Role role = new Role();
-            if (roleTitle != null) {
-                role.setRoleTitle(roleTitle);
-            }
+            role.setRoleTitle(roleTitle);
             if (users != null) {
                 role.setUsers(users);
             }

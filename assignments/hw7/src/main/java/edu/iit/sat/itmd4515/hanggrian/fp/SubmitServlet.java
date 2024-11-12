@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 /**
  * A servlet that handles POST request from `index.xhtml` form input data.
  */
-@WebServlet(name = "submit", value = {"/submit"})
+@WebServlet("/submit")
 public class SubmitServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(SubmitServlet.class);
 
@@ -89,14 +89,14 @@ public class SubmitServlet extends HttpServlet {
         Validators.close();
     }
 
-    private void showAlert(PrintWriter writer, String message) {
+    private static void showAlert(PrintWriter writer, String message) {
         writer.println("<script type=\"text/javascript\">");
         writer.println(String.format("alert('%s');", message));
         writer.println("location='index.xhtml';");
         writer.println("</script>");
     }
 
-    private void appendNullable(StringBuilder builder, Object obj) {
+    private static void appendNullable(StringBuilder builder, Object obj) {
         if (obj == null) {
             return;
         }

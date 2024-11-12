@@ -15,7 +15,7 @@ public final class Rentals {
 
     public static List<Rental> selectById(Session session, int id) {
         return session
-            .createQuery("FROM Rental WHERE id= :id", Rental.class)
+            .createQuery("FROM Rental WHERE id = :id", Rental.class)
             .setParameter("id", id)
             .getResultList();
     }
@@ -23,8 +23,8 @@ public final class Rentals {
     public static List<Rental> selectByDate(Session session, LocalDate date) {
         return session
             .createQuery(
-                "FROM Rental WHERE DATE(rentalDate)= :rental_date "
-                    + "OR DATE(returnDate)= :return_date",
+                "FROM Rental WHERE DATE(rentalDate) = :rental_date "
+                    + "OR DATE(returnDate) = :return_date",
                 Rental.class
             ).setParameter("rental_date", date)
             .setParameter("return_date", date)

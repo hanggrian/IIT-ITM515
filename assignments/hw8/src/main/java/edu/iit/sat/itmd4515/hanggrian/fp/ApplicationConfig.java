@@ -17,7 +17,7 @@ import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
     priorityExpression = "#{100}",
     hashAlgorithmParameters = {
         "Pbkdf2PasswordHash.Iterations=3072",
-        "${applicationConfig.dyna}"
+        "${applicationConfig.dyna}",
     }
 )
 @BasicAuthenticationMechanismDefinition(realmName="defaultRealm")

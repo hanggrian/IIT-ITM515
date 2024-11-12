@@ -13,11 +13,11 @@ hibernate = { id = "org.hibernate.orm", version.ref = "hibernate" }
 # lint
 rulebook-checkstyle = "com.hanggrian.rulebook:rulebook-checkstyle:0.1"
 # main
-bind-api = "jakarta.xml.bind:jakarta.xml.bind-api:4.0.2"
-cdi-api = "jakarta.enterprise:jakarta.enterprise.cdi-api:4.1.0"
-rs-api = "jakarta.ws.rs:jakarta.ws.rs-api:4.0.0"
-servlet-api = "jakarta.servlet:jakarta.servlet-api:6.1.0"
-ejb-api = "jakarta.ejb:jakarta.ejb-api:4.0.1"
+jakarta-bind-api = "jakarta.xml.bind:jakarta.xml.bind-api:4.0.2"
+jakarta-cdi-api = "jakarta.enterprise:jakarta.enterprise.cdi-api:4.1.0"
+jakarta-rs-api = "jakarta.ws.rs:jakarta.ws.rs-api:4.0.0"
+jakarta-servlet-api = "jakarta.servlet:jakarta.servlet-api:6.1.0"
+jakarta-ejb-api = "jakarta.ejb:jakarta.ejb-api:4.0.1"
 jakartaee-api = "jakarta.platform:jakarta.jakartaee-api:10.0.0"
 deployment-client = "org.glassfish.main.deployment:deployment-client:5.1.0"
 cargo-ant = "org.codehaus.cargo:cargo-ant:1.10.14"
@@ -35,7 +35,14 @@ jupiter = "org.junit.jupiter:junit-jupiter-engine:5.11.0"
 truth = "com.google.truth:truth:1.4.4"
 
 [bundles]
-jakarta = ["bind-api", "cdi-api", "rs-api", "servlet-api", "ejb-api", "jakartaee-api"]
+jakarta = [
+  "jakarta-bind-api",
+  "jakarta-cdi-api",
+  "jakarta-rs-api",
+  "jakarta-servlet-api",
+  "jakarta-ejb-api",
+  "jakartaee-api",
+]
 cargo = ["deployment-client", "cargo-ant"]
 hibernate = [
   "hibernate-core",

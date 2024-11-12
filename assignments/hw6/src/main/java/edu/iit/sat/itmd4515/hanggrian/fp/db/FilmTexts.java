@@ -33,7 +33,7 @@ public class FilmTexts {
     public void deleteAllByFilm(Film film) {
         List<FilmText> filmTexts =
             manager
-                .createQuery("FROM FilmText WHERE filmId= :filmId", FilmText.class)
+                .createQuery("FROM FilmText WHERE filmId = :filmId", FilmText.class)
                 .setParameter("filmId", film.getFilmId())
                 .getResultList();
 

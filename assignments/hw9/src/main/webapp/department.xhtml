@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="jakarta.faces.html"
+  lang="en">
+
+<h:head>
+  <meta charset="UTF-8"/>
+  <title>ITMD 4/515 — Lab 8</title>
+
+  <meta name="viewport" content="width=device-width"/>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+
+  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0"/>
+  <script src="scripts/theme.js"></script>
+
+  <!-- Primary meta tags -->
+  <meta name="title" content="IIT ITM515"/>
+  <meta name="description" content="Adv Software Programming at Illinois Tech — Fall 2024"/>
+</h:head>
+
+<h:body>
+  <div class="wrapper">
+    <header>
+      <ui:insert>
+        <ui:include src="layouts/header_session.xhtml"/>
+      </ui:insert>
+    </header>
+    <section>
+      <h1><h:outputText value="#{param.name}"/></h1>
+      <p><h:outputText value="#{departmentController.description}" escape="false"/></p>
+
+      <h:dataTable value="#{departmentController.information}" var="info">
+        <h:column>
+          <f:facet name="header">Information</f:facet>
+          #{info.key}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Value</f:facet>
+          #{info.value}
+        </h:column>
+      </h:dataTable>
+    </section>
+    <footer>
+      <ui:insert>
+        <ui:include src="layouts/footer.xhtml"/>
+      </ui:insert>
+    </footer>
+  </div>
+  <script src="scripts/scale.fix.js"></script>
+</h:body>
+
+</html>

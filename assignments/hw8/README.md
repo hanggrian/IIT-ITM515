@@ -26,13 +26,13 @@ Cargo plugin.
 <img width="480" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw8/diagram1.svg"><br><small>Diagram 1 &mdash; *itmd4515* UML diagram</small>
 
 The schema contains only the schemas relevant to the security features. They are
-`users`, `roles` and their conjunction table `user_roles`. This is to indicate
-that a user may have multiple roles and a role may be assigned to multiple
-users.
+**users**, **roles** and their conjunction table **user roles**. This is to
+indicate that a user may have multiple roles and a role may be assigned to
+multiple users.
 
 ## Screenshots
 
-### Home page
+### Index page
 
 <img width="640" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw8/screenshot1.png"><br><small>Screenshot 1 &mdash; The `index.xhtml` page</small>
 
@@ -43,7 +43,7 @@ create a new one by clicking the **Create Account** button.
 ### Create account
 
 <img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw8/screenshot2_1.png">
-<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw8/screenshot2_2.png"><br><small>Screenshot 2.1 & 2.2 &mdash; Sign-up input form and alert message</small>
+<img width="320" src="https://github.com/hanggrian/IIT-ITM515/raw/assets/assignments/hw8/screenshot2_2.png"><br><small>Screenshot 2.1 & 2.2 &mdash; Sign-up dialog and alert message</small>
 
 Values entered in the form are validated using JavaScript, which controls the
 button's state to prevent submission of invalid format. The servlet then checks

@@ -14,7 +14,7 @@ public final class TrainCars {
 
     public static List<TrainCar> selectByTrain(EntityManager manager, Train train) {
         return manager
-            .createQuery("FROM TrainCar WHERE train= :train", TrainCar.class)
+            .createQuery("FROM TrainCar WHERE train = :train", TrainCar.class)
             .setParameter("train", train)
             .getResultList();
     }

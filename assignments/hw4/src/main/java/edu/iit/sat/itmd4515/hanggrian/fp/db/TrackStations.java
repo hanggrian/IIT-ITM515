@@ -14,7 +14,7 @@ public final class TrackStations {
 
     public static List<TrackStation> selectByStation(EntityManager manager, Station station) {
         return manager
-            .createQuery("FROM TrackStation WHERE station= :station", TrackStation.class)
+            .createQuery("FROM TrackStation WHERE station = :station", TrackStation.class)
             .setParameter("station", station)
             .getResultList();
     }

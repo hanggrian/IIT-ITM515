@@ -14,8 +14,8 @@ public final class Inventories {
     public static Inventory selectOneByFilm(Session session, Store store, Film film) {
         return session
             .createQuery(
-                "FROM Inventory WHERE store= :store "
-                    + "AND film= :film",
+                "FROM Inventory WHERE store = :store "
+                    + "AND film = :film",
                 Inventory.class
             ).setParameter("store", store)
             .setParameter("film", film)

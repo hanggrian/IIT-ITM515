@@ -18,11 +18,11 @@ import org.slf4j.LoggerFactory;
 /**
  * URL handler to create an account, or show an error message if the ID is already taken. All the
  * values sent to this servlet are guaranteed to be in proper format because they are validated in
- * {@code create-account.js}.
+ * {@code signup.js}.
  */
-@WebServlet(name = "signup", value = {"/signup"})
-public class SignupServlet extends HttpServlet {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SignupServlet.class);
+@WebServlet("/create-account")
+public class CreateAccountServlet extends HttpServlet {
+    private static final Logger LOGGER = LoggerFactory.getLogger(CreateAccountServlet.class);
 
     @EJB Users users;
     @EJB Roles roles;
@@ -30,6 +30,11 @@ public class SignupServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        if (request.getParameter("create-account") == null) {
+            gotoIndex(response);
+            return;
+        }
+
         String firstName = request.getParameter("first-name");
         String lastName = request.getParameter("last-name");
         String id = request.getParameter("id");
@@ -59,6 +64,10 @@ public class SignupServlet extends HttpServlet {
                 .roles(roles.selectByTitle("user"))
                 .build()
         );
+        gotoIndex(response);
+    }
+
+    private static void gotoIndex(HttpServletResponse response) {
         try {
             response.sendRedirect("index");
         } catch (IOException e) {
@@ -66,10 +75,10 @@ public class SignupServlet extends HttpServlet {
         }
     }
 
-    private void showAlert(PrintWriter writer, String message) {
+    private static void showAlert(PrintWriter writer, String message) {
         writer.println("<script type=\"text/javascript\">");
         writer.println(String.format("alert('%s');", message));
-        writer.println("location=create-account.xhtml;");
+        writer.println("location=signup.xhtml;");
         writer.println("</script>");
     }
 }

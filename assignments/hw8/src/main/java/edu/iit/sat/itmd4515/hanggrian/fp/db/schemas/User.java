@@ -98,10 +98,9 @@ public class User {
 
     @Override
     public String toString() {
-        if (firstName == null || lastName == null) {
-            return userId;
-        }
-        return String.format("%s., %s", lastName.charAt(0), firstName);
+        return firstName != null && lastName != null
+            ? String.format("%s., %s", lastName.charAt(0), firstName)
+            : userId;
     }
 
     public static class Builder implements SchemaBuilder<User> {
@@ -146,21 +145,11 @@ public class User {
         @Override
         public User build() {
             User user = new User();
-            if (userId != null) {
-                user.setUserId(userId);
-            }
-            if (email != null) {
-                user.setEmail(email);
-            }
-            if (password != null) {
-                user.setPassword(password);
-            }
-            if (firstName != null) {
-                user.setFirstName(firstName);
-            }
-            if (lastName != null) {
-                user.setLastName(lastName);
-            }
+            user.setUserId(userId);
+            user.setEmail(email);
+            user.setPassword(password);
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
             if (roles != null) {
                 user.setRoles(roles);
             }

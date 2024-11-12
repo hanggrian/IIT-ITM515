@@ -29,7 +29,7 @@ public class Languages {
 
     public boolean isEmpty() {
         return manager
-            .createQuery("SELECT 1 FROM Language l")
+            .createQuery("FROM Language l")
             .setMaxResults(1)
             .getResultList()
             .isEmpty();
@@ -37,8 +37,10 @@ public class Languages {
 
     public Language selectByName(String name) {
         return manager
-            .createQuery("FROM Language language WHERE LOWER(language.name)= :name", Language.class)
-            .setParameter("name", name.toLowerCase())
+            .createQuery(
+                "FROM Language language WHERE LOWER(language.name) = :name",
+                Language.class
+            ).setParameter("name", name.toLowerCase())
             .getSingleResult();
     }
 

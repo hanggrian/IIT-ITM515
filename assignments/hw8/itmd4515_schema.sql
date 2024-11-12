@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS role;
 
 CREATE TABLE role(
-  role_title VARCHAR(30) NOT NULL,
+  role_title VARCHAR(15) NOT NULL,
   PRIMARY KEY(role_title)
 );
 
@@ -20,8 +20,8 @@ CREATE TABLE user(
 );
 
 CREATE TABLE user_role(
-  role_title VARCHAR(50) NOT NULL,
-  user_id VARCHAR(10) NOT NULL,
+  role_title VARCHAR(15) NOT NULL,
+  user_id VARCHAR(15) NOT NULL,
   PRIMARY KEY(role_title, user_id),
   KEY idx_fk_user_id(user_id),
   CONSTRAINT fk_user_role_role FOREIGN KEY(role_title) REFERENCES role(role_title)

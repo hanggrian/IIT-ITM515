@@ -16,7 +16,7 @@ public final class Payments {
 
     public static List<Payment> selectByRentalId(Session session, Rental rental) {
         return session
-            .createQuery("FROM Payment WHERE rental= :rental", Payment.class)
+            .createQuery("FROM Payment WHERE rental = :rental", Payment.class)
             .setParameter("rental", rental)
             .getResultList();
     }

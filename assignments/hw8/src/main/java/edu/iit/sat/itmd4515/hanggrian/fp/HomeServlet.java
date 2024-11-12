@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,11 +17,11 @@ import org.slf4j.LoggerFactory;
  * An elevated servlet to test login credentials. This page will show user principal associated with
  * the current session.
  */
-@WebServlet(name = "signin", value = {"/signin"})
 @DeclareRoles({"user", "admin"})
 @ServletSecurity(@HttpConstraint(rolesAllowed = {"user", "admin"}))
-public class SigninServlet extends HttpServlet {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SigninServlet.class);
+@WebServlet("/home")
+public class HomeServlet extends HttpServlet {
+    private static final Logger LOGGER = LoggerFactory.getLogger(HomeServlet.class);
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -31,20 +32,21 @@ public class SigninServlet extends HttpServlet {
             LOGGER.error("IO error.", e);
             throw new RuntimeException(e);
         }
-        writeAll(
-            writer,
+        for (String line : Arrays.asList(
             "<!DOCTYPE html>",
             "<html lang=\"en\">",
             "<head>",
             "  <meta charset=\"UTF-8\"/>",
-            "  <title>ITMD 4/515 — Lab 8</title>",
+            "  <title>ITMD 4/515 — Lab 9</title>",
             "  <meta name=\"viewport\" content=\"width=device-width\"/>",
             "  <meta http-equiv=\"X-UA-Compatible\" content=\"chrome=1\"/>",
             "  <link rel=\"stylesheet\" href=\"styles/main.css\"/>",
-            "  <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0\"/>",
+            "  <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Sy"
+                + "mbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0\"/>",
             "  <script src=\"scripts/theme.js\"></script>",
-            "  <meta name=\"title\" content=\"Minimal Dark Theme\"/>",
-            "  <meta name=\"description\" content=\"Minimalistic webpage with switchable dark mode for GitHub pages\"/>",
+            "  <meta name=\"title\" content=\"IIT ITM515\"/>",
+            "  <meta name=\"description\" content=\"Adv Software Programming at Illinois Tech — Fal"
+                + "l 2024\"/>",
             "</head>",
             "<body>",
             "  <div class=\"wrapper\">",
@@ -58,7 +60,8 @@ public class SigninServlet extends HttpServlet {
             "      </p>",
             "      <ul>",
             "        <li>",
-            "          <a href=\"https://github.com/hanggrian/IIT-ITM515/\">View on<strong>GitHub</strong></a>",
+            "          <a href=\"https://github.com/hanggrian/IIT-ITM515/\">View on<strong>GitHub</"
+                + "strong></a>",
             "        </li>",
             "        <li>",
             "          <a href=\"https://github.com/hanggrian/IIT-ITM515/zipball/main/\">",
@@ -84,23 +87,21 @@ public class SigninServlet extends HttpServlet {
             "        onclick=\"toggleDarkMode()\"></button>",
             "      </p>",
             "      <p>",
-            "        This project is maintained by <a href=\"https://github.com/hanggrian/\">Hendra Anggrian</a>",
+            "        This project is maintained by <a href=\"https://github.com/hanggrian/\">Hendra"
+                + " Anggrian</a>",
             "      </p>",
             "      <p>",
             "        <small>",
-            "          Hosted on GitHub Pages — Theme by <a href=\"https://github.com/orderedlist/\">orderedlist</a>",
+            "          Hosted on GitHub Pages — Theme by <a href=\"https://github.com/orderedlist/"
+                + "\">orderedlist</a>",
             "        </small>",
             "      </p>",
             "    </footer>",
             "  </div>",
             "  <script src=\"scripts/scale.fix.js\"></script>",
             "</body>"
-        );
-    }
-
-    private void writeAll(PrintWriter writer, String... content) {
-        for (String s : content) {
-            writer.write(s);
+        )) {
+            writer.write(line);
         }
     }
 }

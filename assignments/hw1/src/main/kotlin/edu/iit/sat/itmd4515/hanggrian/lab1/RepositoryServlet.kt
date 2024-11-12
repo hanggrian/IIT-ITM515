@@ -25,7 +25,7 @@ import org.commonmark.renderer.html.HtmlRenderer
 import java.io.IOException
 
 /** The servlet to personal repository page. */
-@WebServlet(name = "repository", value = ["/repository"])
+@WebServlet("/repository")
 class RepositoryServlet : HttpServlet() {
     @Throws(IOException::class)
     override fun doGet(request: HttpServletRequest, response: HttpServletResponse) {

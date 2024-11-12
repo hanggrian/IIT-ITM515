@@ -29,7 +29,7 @@ public class Users {
 
     public boolean hasUserId(String userId) {
         return !manager
-            .createQuery("SELECT 1 FROM User u WHERE u.userId= :userId", User.class)
+            .createQuery("FROM User u WHERE u.userId = :userId", User.class)
             .setParameter("userId", userId)
             .setMaxResults(1)
             .getResultList()

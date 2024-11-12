@@ -67,7 +67,7 @@ public class Languages {
 ```
 
 ```java
-@WebServlet(name = "submit", value = {"/submit"})
+@WebServlet("/submit")
 public class SubmitServlet extends HttpServlet {
     @EJB Films films;
     @EJB Languages languages;
