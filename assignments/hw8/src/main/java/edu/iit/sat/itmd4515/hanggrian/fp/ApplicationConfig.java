@@ -20,7 +20,7 @@ import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
         "${applicationConfig.dyna}",
     }
 )
-@BasicAuthenticationMechanismDefinition(realmName="defaultRealm")
+@BasicAuthenticationMechanismDefinition(realmName = "defaultRealm")
 @ApplicationScoped
 @Named
 public class ApplicationConfig {

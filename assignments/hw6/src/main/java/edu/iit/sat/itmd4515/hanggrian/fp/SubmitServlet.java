@@ -92,7 +92,7 @@ public class SubmitServlet extends HttpServlet {
     private static void showAlert(PrintWriter writer, String message) {
         writer.println("<script type=\"text/javascript\">");
         writer.println(String.format("alert('%s');", message));
-        writer.println("location='index.jsp';");
+        writer.println("location=index;");
         writer.println("</script>");
     }
 

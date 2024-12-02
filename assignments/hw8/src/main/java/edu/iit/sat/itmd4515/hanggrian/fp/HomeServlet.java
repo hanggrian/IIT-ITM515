@@ -40,10 +40,10 @@ public class HomeServlet extends HttpServlet {
             "  <title>ITMD 4/515 — Lab 9</title>",
             "  <meta name=\"viewport\" content=\"width=device-width\"/>",
             "  <meta http-equiv=\"X-UA-Compatible\" content=\"chrome=1\"/>",
-            "  <link rel=\"stylesheet\" href=\"styles/main.css\"/>",
+            "  <link rel=\"stylesheet\" href=\"resources/styles/main.css\"/>",
             "  <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Sy"
                 + "mbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0\"/>",
-            "  <script src=\"scripts/theme.js\"></script>",
+            "  <script src=\"resources/scripts/theme.js\"></script>",
             "  <meta name=\"title\" content=\"IIT ITM515\"/>",
             "  <meta name=\"description\" content=\"Adv Software Programming at Illinois Tech — Fal"
                 + "l 2024\"/>",
@@ -98,7 +98,7 @@ public class HomeServlet extends HttpServlet {
             "      </p>",
             "    </footer>",
             "  </div>",
-            "  <script src=\"scripts/scale.fix.js\"></script>",
+            "  <script src=\"resources/scripts/scale.fix.js\"></script>",
             "</body>"
         )) {
             writer.write(line);

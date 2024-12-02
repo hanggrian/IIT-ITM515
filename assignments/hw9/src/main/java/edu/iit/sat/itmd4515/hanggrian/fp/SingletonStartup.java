@@ -12,7 +12,7 @@ import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
-import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
+import jakarta.security.enterprise.identitystore.PasswordHash;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -33,7 +33,7 @@ public class SingletonStartup {
     @EJB Departments departments;
     @EJB Students students;
     @EJB Roles roles;
-    @Inject Pbkdf2PasswordHash passwordHash;
+    @Inject PasswordHash passwordHash;
 
     private Faker faker;
     private Random random;

@@ -9,7 +9,7 @@ import jakarta.ejb.EJB;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
-import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
+import jakarta.security.enterprise.identitystore.PasswordHash;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,7 +26,7 @@ public class SingletonStartup {
 
     @EJB Roles roles;
     @EJB Users users;
-    @Inject Pbkdf2PasswordHash passwordHash;
+    @Inject PasswordHash passwordHash;
 
     @PostConstruct
     public void initialize() {

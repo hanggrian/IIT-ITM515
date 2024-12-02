@@ -5,7 +5,7 @@ import edu.iit.sat.itmd4515.hanggrian.fp.db.Users;
 import edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.User;
 import jakarta.ejb.EJB;
 import jakarta.inject.Inject;
-import jakarta.security.enterprise.identitystore.Pbkdf2PasswordHash;
+import jakarta.security.enterprise.identitystore.PasswordHash;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public class CreateAccountServlet extends HttpServlet {
 
     @EJB Users users;
     @EJB Roles roles;
-    @Inject Pbkdf2PasswordHash passwordHash;
+    @Inject PasswordHash passwordHash;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -78,7 +78,7 @@ public class CreateAccountServlet extends HttpServlet {
     private static void showAlert(PrintWriter writer, String message) {
         writer.println("<script type=\"text/javascript\">");
         writer.println(String.format("alert('%s');", message));
-        writer.println("location=signup.xhtml;");
+        writer.println("location=signup;");
         writer.println("</script>");
     }
 }

@@ -35,13 +35,8 @@ public class Departments {
             .isEmpty();
     }
 
-    public Department selectByName(String departmentName) {
-        return manager
-            .createQuery(
-                "FROM Department d WHERE d.departmentName = :departmentName",
-                Department.class
-            ).setParameter("departmentName", departmentName)
-            .getSingleResult();
+    public Department find(String departmentName) {
+        return manager.find(Department.class, departmentName);
     }
 
     @Transactional

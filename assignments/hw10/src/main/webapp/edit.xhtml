@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="jakarta.faces.html"
+  lang="en">
+
+<h:head>
+  <meta charset="UTF-8"/>
+  <title>ITMD 4/515 — Lab 10</title>
+
+  <meta name="viewport" content="width=device-width"/>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+
+  <h:outputStylesheet name="styles/main.css"/>
+  <h:outputStylesheet name="styles/form.css"/>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0"/>
+  <h:outputScript name="scripts/theme.js" target="head"/>
+
+  <!-- Primary meta tags -->
+  <meta name="title" content="IIT ITM515"/>
+  <meta name="description" content="Adv Software Programming at Illinois Tech — Fall 2024"/>
+</h:head>
+
+<h:body>
+  <div class="wrapper">
+    <header>
+      <ui:insert>
+        <ui:include src="layouts/header_session.xhtml"/>
+      </ui:insert>
+    </header>
+    <section>
+      <h1>Edit student</h1>
+
+      <h:form>
+        <h:outputLabel for="first-name-text" value="First Name:"/>
+        <h:inputText
+          id="first-name-text"
+          placeholder="First Name"
+          title="First name is a short 50-characters with a leading capitalized letter."
+          value="#{editController.firstName}">
+          <f:ajax event="keyup" render="edit-submit"/>
+        </h:inputText>
+
+        <h:outputLabel for="last-name-text" value="Last Name:"/>
+        <h:inputText
+          id="last-name-text"
+          placeholder="Last Name"
+          title="Last name is a long 100-characters with a leading capitalized letter."
+          value="#{editController.lastName}">
+          <f:ajax event="keyup" render="edit-submit"/>
+        </h:inputText>
+
+        <!-- arbitrary gap -->
+        <h:outputLabel/>
+        <h:outputLabel/>
+
+        <h:outputLabel for="id-text" value="ID:"/>
+        <h:inputText
+          id="id-text"
+          placeholder="ID"
+          title="Username is all lowercase and no longer than 15 characters."
+          value="#{editController.studentId}"
+          disabled="true"/>
+
+        <h:outputLabel for="email-text" value="Email:"/>
+        <h:inputText
+          id="email-text"
+          placeholder="Email"
+          title="Must be in email format with '@' and domain name."
+          value="#{editController.email}">
+          <f:ajax event="keyup" render="edit-submit"/>
+        </h:inputText>
+
+        <h:outputLabel for="department-menu" value="Department:"/>
+        <h:selectOneMenu
+          id="department-menu"
+          title="Pick a department."
+          value="#{editController.departmentName}">
+          <f:selectItems
+            var="department"
+            value="#{editController.departments}"
+            itemLabel="#{department.departmentName}"
+            itemValue="#{department.departmentName}"/>
+          <f:ajax execute="department-menu" update="department-menu"/>
+        </h:selectOneMenu>
+
+        <!-- another gap -->
+        <h:outputLabel/>
+        <h:outputLabel/>
+
+        <h:outputLabel for="password" value="Password:"/>
+        <h:inputSecret
+          id="password"
+          placeholder="Password"
+          title="Password associated with the account."
+          value="#{editController.password}">
+          <f:ajax event="keyup" render="edit-submit"/>
+        </h:inputSecret>
+
+        <h:outputLabel for="confirm-password" value="Confirm Password:"/>
+        <h:inputSecret
+          id="confirm-password"
+          placeholder="Confirm Password"
+          title="Re-type the password again."
+          value="#{editController.confirmPassword}">
+          <f:ajax event="keyup" render="edit-submit"/>
+        </h:inputSecret>
+
+        <div class="grid-span2" style="display: flex;">
+          <h:outputLabel style="flex-grow: 1;"/>
+          <h:commandButton
+            id="cancel-submit"
+            class="submit-flat"
+            value="Cancel"
+            action="#{editController.cancel}"
+            immediate="true"/>
+          <h:commandButton
+            id="edit-submit"
+            class="submit-raised"
+            value="Edit"
+            disabled="#{not editController.valid}"
+            action="#{editController.edit}"
+            immediate="true"/>
+        </div>
+      </h:form>
+    </section>
+    <footer>
+      <ui:insert>
+        <ui:include src="layouts/footer.xhtml"/>
+      </ui:insert>
+    </footer>
+  </div>
+  <h:outputScript name="scripts/scale.fix.js"/>
+</h:body>
+
+</html>
