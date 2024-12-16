@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Named("headerController")
 @SessionScoped
 public class HeaderController implements Serializable {
-    @Inject private SecurityContext context;
+    @Inject SecurityContext context;
 
     public String getWelcomeText() {
         return String.format("Welcome, %s!", context.getCallerPrincipal().getName());

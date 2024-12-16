@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="jakarta.faces.html"
+  xmlns:p="http://primefaces.org/ui">
+  <h1>Dashboard</h1>
+  <p:outputLabel value="#{headerController.welcomeText}" style="font-weight: bold;"/>
+  <p><h:outputText value="#{headerController.greetText}"/></p>
+  <p class="view">
+    <a href="https://github.com/hanggrian/IIT-ITM515/">
+      View the Project on GitHub <small>hanggrian/IIT-ITM515</small>
+    </a>
+  </p>
+  <ul>
+    <li><a href="home">Go to<strong>Home</strong></a></li>
+    <li><a href="docs/index.html">View<strong>Docs</strong></a></li>
+    <li><a href="${request.contextPath}/logout">User<strong>Logout</strong></a></li>
+  </ul>
+</ui:composition>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+  version="3.0"
+  xmlns="https://jakarta.ee/xml/ns/persistence"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+  https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+  <persistence-unit name="itmd4515" transaction-type="JTA">
+    <jta-data-source>java:app/jdbc/itmd4515</jta-data-source>
+
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Department</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Role</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.Student</class>
+    <class>edu.iit.sat.itmd4515.hanggrian.fp.db.schemas.StudentRole</class>
+
+    <properties>
+      <property
+        name="jakarta.persistence.schema-generation.database.action"
+        value="drop-and-create"/>
+    </properties>
+  </persistence-unit>
+</persistence>

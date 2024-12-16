@@ -26,7 +26,7 @@ public class SingletonStartup {
 
     @EJB Roles roles;
     @EJB Users users;
-    @Inject PasswordHash passwordHash;
+    @Inject PasswordHash hash;
 
     @PostConstruct
     public void initialize() {
@@ -46,7 +46,7 @@ public class SingletonStartup {
                 new User.Builder()
                     .userId(USER_ITMD4515)
                     .email(USER_ITMD4515 + "@iit.edu")
-                    .password(passwordHash.generate(USER_ITMD4515.toCharArray()))
+                    .password(hash.generate(USER_ITMD4515.toCharArray()))
                     .firstName("John")
                     .lastName("Doe")
                     .roles(userRole)
@@ -61,7 +61,7 @@ public class SingletonStartup {
             new User.Builder()
                 .userId(USER_ADMIN)
                 .email(USER_ADMIN + "@iit.edu")
-                .password(passwordHash.generate(USER_ADMIN.toCharArray()))
+                .password(hash.generate(USER_ADMIN.toCharArray()))
                 .roles(userRole, adminRole)
                 .build()
         );

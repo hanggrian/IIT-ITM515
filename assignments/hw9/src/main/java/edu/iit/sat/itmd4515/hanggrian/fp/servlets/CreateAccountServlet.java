@@ -26,7 +26,7 @@ public class CreateAccountServlet extends HttpServlet {
 
     @EJB Students students;
     @EJB Roles roles;
-    @Inject PasswordHash passwordHash;
+    @Inject PasswordHash hash;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -60,7 +60,7 @@ public class CreateAccountServlet extends HttpServlet {
                 .lastName(lastName)
                 .studentId(id)
                 .email(email)
-                .password(passwordHash.generate(password.toCharArray()))
+                .password(hash.generate(password.toCharArray()))
                 .roles(roles.selectByTitle("user"))
                 .build()
         );

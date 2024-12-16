@@ -76,7 +76,7 @@ tasks {
     }
 
     named<War>("war") {
-        webAppDirectory = file("src/main/webapp")
+        webAppDirectory = layout.projectDirectory.dir("src/main/webapp")
     }
 
     cargoRunLocal.get().dependsOn(war)

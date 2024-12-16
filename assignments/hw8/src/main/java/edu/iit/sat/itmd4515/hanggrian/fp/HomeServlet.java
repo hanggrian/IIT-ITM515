@@ -37,7 +37,7 @@ public class HomeServlet extends HttpServlet {
             "<html lang=\"en\">",
             "<head>",
             "  <meta charset=\"UTF-8\"/>",
-            "  <title>ITMD 4/515 — Lab 9</title>",
+            "  <title>ITMD 4/515 — Lab 8</title>",
             "  <meta name=\"viewport\" content=\"width=device-width\"/>",
             "  <meta http-equiv=\"X-UA-Compatible\" content=\"chrome=1\"/>",
             "  <link rel=\"stylesheet\" href=\"resources/styles/main.css\"/>",

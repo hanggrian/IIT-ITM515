@@ -33,7 +33,7 @@ public class SingletonStartup {
     @EJB Departments departments;
     @EJB Students students;
     @EJB Roles roles;
-    @Inject PasswordHash passwordHash;
+    @Inject PasswordHash hash;
 
     private Faker faker;
     private Random random;
@@ -138,7 +138,7 @@ public class SingletonStartup {
                 new Student.Builder()
                     .studentId(STUDENT_ADMIN)
                     .email(STUDENT_ADMIN + "@iit.edu")
-                    .password(passwordHash.generate(STUDENT_ADMIN.toCharArray()))
+                    .password(hash.generate(STUDENT_ADMIN.toCharArray()))
                     .roles(userRole, adminRole)
                     .build()
             );
@@ -160,7 +160,7 @@ public class SingletonStartup {
             .lastName(lastName)
             .studentId(studentId)
             .email(studentId + "@iit.edu")
-            .password(passwordHash.generate(studentId.toCharArray()))
+            .password(hash.generate(studentId.toCharArray()))
             .department(departments.get(random.nextInt(departments.size())))
             .roles(role)
             .build();

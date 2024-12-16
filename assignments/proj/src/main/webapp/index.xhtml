@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+  xmlns:h="jakarta.faces.html"
+  lang="en">
+
+<h:head>
+  <meta charset="UTF-8"/>
+  <title>ITMD 4/515 — Final project</title>
+
+  <meta name="viewport" content="width=device-width"/>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+
+  <h:outputStylesheet name="styles/main.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0"/>
+  <h:outputScript name="scripts/theme.js" target="head"/>
+
+  <!-- Primary meta tags -->
+  <meta name="title" content="IIT ITM515"/>
+  <meta name="description" content="Adv Software Programming at Illinois Tech — Fall 2024"/>
+</h:head>
+
+<h:body>
+  <div class="wrapper">
+    <header>
+      <ui:insert>
+        <ui:include src="layouts/header_plain.xhtml"/>
+      </ui:insert>
+    </header>
+    <section>
+      <h1>Welcome</h1>
+      <p>
+        This website contains list of students registered in a course. Each time a startup service
+        is initiated, it generates 10 random students with general <b>user</b> role and an admin
+        credentials with an elevated <b>admin</b> role.
+      </p>
+
+      <p>Here are their usernames:</p>
+
+      <ul>
+        <ui:repeat value="#{indexController.studentIds}" var="studentId">
+          <li>#{studentId}</li>
+        </ui:repeat>
+      </ul>
+
+      <blockquote>
+        To test logging in, click <i>Login</i>, then enter one of the student above or <b>admin</b>
+        as username and password. Alternatively, create a new student with <i>Create Account</i>
+        button.
+      </blockquote>
+      <br/>
+
+      <form action="signup">
+        <input
+          id="create-account-submit"
+          class="submit-flat"
+          type="submit"
+          value="Create Account"/>
+      </form>
+      <form action="home">
+        <input
+          id="login-submit"
+          class="submit-raised"
+          type="submit"
+          value="Login"/>
+      </form>
+    </section>
+    <footer>
+      <ui:insert>
+        <ui:include src="layouts/footer.xhtml"/>
+      </ui:insert>
+    </footer>
+  </div>
+  <h:outputScript name="scripts/scale.fix.js"/>
+</h:body>
+
+</html>
